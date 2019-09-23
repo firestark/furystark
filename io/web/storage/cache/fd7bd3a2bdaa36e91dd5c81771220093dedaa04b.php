@@ -1,0 +1,1 @@
+<h1>Exercises</h1><?php /**PATH /home/aron/Documents/firestark/furystark/io/web/views/exercises/list.blade.php ENDPATH**/ ?>
