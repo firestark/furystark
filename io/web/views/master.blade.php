@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en-GB" data-theme="{{ session::has ( 'theme' ) ? session::get ( 'theme' ) : 'light' }}">
+<html lang="en-GB" data-theme="{{ session::has ( 'theme' ) ? session::get ( 'theme' ) : 'dark' }}">
 
 <head>
     <meta charset="utf-8">
@@ -23,20 +23,6 @@
 </head>
 
 <body class="mdc-typography">
-
-    <header class="mdc-top-app-bar">
-        <div class="mdc-top-app-bar__row">
-            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
-            <button class="mdc-top-app-bar__navigation-icon mdc-icon-button">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                    <path d="M0 0h24v24H0z" fill="none"/>
-                    <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
-                </svg>
-            </button>
-            <span class="mdc-top-app-bar__title">Title</span>
-            </section>
-        </div>
-    </header>
   
     @yield ( 'page' )
 
