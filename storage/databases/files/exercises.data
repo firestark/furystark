@@ -1,1 +1,1 @@
-a:1:{s:11:"Bench press";O:8:"exercise":1:{s:4:"name";s:11:"Bench press";}}
+a:2:{s:11:"Bench press";O:8:"exercise":1:{s:4:"name";s:11:"Bench press";}s:8:"Deadlift";O:8:"exercise":1:{s:4:"name";s:8:"Deadlift";}}
