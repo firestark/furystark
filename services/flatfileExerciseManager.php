@@ -27,6 +27,12 @@ class flatfileExerciseManager implements exercise\manager
         return $this->exercises;
     }
 
+    function remove ( string $name )
+    {
+        unset ( $this->exercises [ $name ] );
+        $this->write ( );
+    }
+
     private function write ( )
     {
         file_put_contents ( $this->file, serialize ( $this->exercises ) );

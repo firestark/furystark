@@ -11,4 +11,6 @@ interface manager
     function add ( exercise $exercise );
 
     function all ( ) : array;
+
+    function remove ( string $name );
 }
