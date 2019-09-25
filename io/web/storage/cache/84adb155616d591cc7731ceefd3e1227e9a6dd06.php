@@ -47,6 +47,9 @@
             const snackbar = mdc.snackbar.MDCSnackbar.attachTo ( document.querySelector ( '.mdc-snackbar' ) );
             snackbar.open ( );
         <?php endif; ?>
+
+        const textFields = document.querySelectorAll ( '.mdc-text-field' );
+        textFields.forEach ( ( field ) => mdc.textField.MDCTextField.attachTo ( field ) );
     </script>
     
     <?php echo $__env->yieldContent( 'js' ); ?>  
