@@ -3,5 +3,5 @@
 status::matching ( 2000, function ( )
 {
     session::flash ( 'message', 'Exercise already exists.' );
-    return redirect::to ( '/' );
+    return redirect::to ( '/exercises' );
 } );

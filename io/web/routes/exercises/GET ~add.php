@@ -1,6 +1,6 @@
 <?php
 
-route::get ( '/add', function ( )
+route::get ( '/exercises/add', function ( )
 {
     return view::make ( 'exercises.add' );
 } );

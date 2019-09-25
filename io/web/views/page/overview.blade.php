@@ -15,7 +15,14 @@
                     <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">                
                         
                         @yield ( 'top-app-bar--actions' )
-                        @include ( 'partials.more' )
+                        
+                        <a href="/toggle-theme" class="mdc-top-app-bar__action-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <path d="M0 0h24v24H0z" fill="none"/>
+                                <path d="M3.55 18.54l1.41 1.41 1.79-1.8-1.41-1.41-1.79 1.8zM11 22.45h2V19.5h-2v2.95zM4 10.5H1v2h3v-2zm11-4.19V1.5H9v4.81C7.21 7.35 6 9.28 6 11.5c0 3.31 2.69 6 6 6s6-2.69 6-6c0-2.22-1.21-4.15-3-5.19zm5 4.19v2h3v-2h-3zm-2.76 7.66l1.79 1.8 1.41-1.41-1.8-1.79-1.4 1.4z"/>
+                            </svg>
+                        </a>
+                        {{-- @include ( 'partials.more' ) --}}
                     </section>
                 </div>
             </header>
@@ -31,10 +38,10 @@
                         <div class="mdc-tab-scroller__scroll-area">
                             <div class="mdc-tab-scroller__scroll-content">
                                 
-                                <a href="{{ request::getUri ( )->getPath ( ) === '/' ? '#' : '/' }}" class="mdc-tab mdc-tab--stacked {{  ( request::getUri ( )->getPath ( ) === '/' ) ? 'mdc-tab--active' : '' }}" role="tab" aria-selected="true" tabindex="0">
+                                <a href="/exercises" class="mdc-tab mdc-tab--stacked {{  ( request::getUri ( )->getPath ( ) === '/exercises' ) ? 'mdc-tab--active' : '' }}" role="tab" aria-selected="true" tabindex="0">
                                     <span class="mdc-tab__content">
                                         <span class="mdc-tab__icon" aria-hidden="true">
-                                            @if ( request::getUri ( )->getPath ( ) === '/' )
+                                            @if ( request::getUri ( )->getPath ( ) === '/exercises' )
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                                                     <path d="M19 3H4.99c-1.11 0-1.98.89-1.98 2L3 19c0 1.1.88 2 1.99 2H19c1.1 0 2-.9 2-2V5c0-1.11-.9-2-2-2zm0 12h-4c0 1.66-1.35 3-3 3s-3-1.34-3-3H4.99V5H19v10z"/>
                                                     <path fill="none" d="M0 0h24v24H0V0z"/>
@@ -54,24 +61,24 @@
                                     <span class="mdc-tab__ripple"></span>
                                 </a>
 
-                                <a href="{{ request::getUri ( )->getPath ( ) === '/completed' ? '#' : '/completed' }}" class="mdc-tab mdc-tab--stacked {{ ( request::getUri ( )->getPath ( ) === '/completed' ) ? 'mdc-tab--active' : '' }}" role="tab" aria-selected="true" tabindex="0">
+                                <a href="/schemes" class="mdc-tab mdc-tab--stacked {{ ( request::getUri ( )->getPath ( ) === '/schemes' ) ? 'mdc-tab--active' : '' }}" role="tab" aria-selected="true" tabindex="0">
                                     <span class="mdc-tab__content">
                                         <span class="mdc-tab__icon" aria-hidden="true">
-                                            @if (  request::getUri ( )->getPath ( ) === '/completed' )
+                                            @if (  request::getUri ( )->getPath ( ) === '/schemes' )
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                                                     <path d="M0 0h24v24H0z" fill="none"/>
-                                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                                    <path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
                                                 </svg>
                                             @else
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                                                    <path fill="none" d="M0 0h24v24H0V0zm0 0h24v24H0V0z"/>
-                                                    <path d="M16.59 7.58L10 14.17l-3.59-3.58L5 12l5 5 8-8zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/>
+                                                    <path fill="none" d="M0 0h24v24H0V0z"/>
+                                                    <path d="M7 15h7v2H7zm0-4h10v2H7zm0-4h10v2H7zm12-4h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-.14 0-.27.01-.4.04-.39.08-.74.28-1.01.55-.18.18-.33.4-.43.64-.1.23-.16.49-.16.77v14c0 .27.06.54.16.78s.25.45.43.64c.27.27.62.47 1.01.55.13.02.26.03.4.03h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7-.25c.41 0 .75.34.75.75s-.34.75-.75.75-.75-.34-.75-.75.34-.75.75-.75zM19 19H5V5h14v14z"/>
                                                 </svg>
                                             @endif
                                         </span>
-                                        <span class="mdc-tab__text-label">Done</span>
+                                        <span class="mdc-tab__text-label">Schemes</span>
                                     </span>
-                                    <span class="mdc-tab-indicator {{ ( request::getUri ( )->getPath ( ) === '/completed' ) ? 'mdc-tab-indicator--active' : '' }}">
+                                    <span class="mdc-tab-indicator {{ ( request::getUri ( )->getPath ( ) === '/schemes' ) ? 'mdc-tab-indicator--active' : '' }}">
                                         <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
                                     </span>
                                     <span class="mdc-tab__ripple"></span>

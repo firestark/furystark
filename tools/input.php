@@ -4,20 +4,25 @@ namespace Firestark;
 
 class input
 {
-    private $_data = [ ];
+    private $data = [ ];
 
-    public function __construct ( array $data )
+    function __construct ( array $data )
     {
-        $this->_data = $data;
+        $this->data = $data;
     }
 
-    public function all ( ): array
+    function all ( ): array
     {
-        return $this->_data;
+        return $this->data;
     }
 
-    public function get ( string $key, $default = null )
+    function get ( string $key, $default = null )
     {
-        return $this->_data [ $key ] ?? $default;
+        return $this->data [ $key ] ?? $default;
+    }
+
+    function set ( string $key, $value )
+    {
+        $this->data [ $key ] = $value;
     }
 }

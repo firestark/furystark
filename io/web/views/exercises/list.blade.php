@@ -5,7 +5,7 @@
 @endsection
 
 @section ( 'content' )
-    <ul class="mdc-list">
+    <ul id="exercise-list" class="mdc-list">
         @foreach ( $exercises as $exercise )
             <li class="mdc-list-item">
                 <span class="mdc-list-item__text">{{ $exercise->name }}</span>
@@ -19,14 +19,14 @@
         @endforeach
     </ul>
 
-    @include ( 'partials.link.fab', [ 'action' => 'add', 'link' => '/add' ] )
+    @include ( 'partials.link.fab', [ 'action' => 'add', 'link' => '/exercises/add' ] )
 @endsection
 
 @section ( 'js' )
     @parent
     
-    {{-- <script>
+    <script>
         const exerciseList = mdc.list.MDCList.attachTo ( document.getElementById ( 'exercise-list' ) );
         const exerciseListItemRipples = exerciseList.listElements.map ( ( listItemEl ) => mdc.ripple.MDCRipple.attachTo ( listItemEl ) );
-    </script> --}}
+    </script>
 @endsection

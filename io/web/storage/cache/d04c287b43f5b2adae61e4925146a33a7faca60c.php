@@ -4,7 +4,7 @@
 
 <?php $__env->startSection( 'content' ); ?>
 
-    <form action="/" method="POST">
+    <form action="/exercises" method="POST">
         <div class="mdc-text-field">
             <input name="name" type="text" id="name-field" class="mdc-text-field__input">
             <label class="mdc-floating-label" for="name-field">Name</label>

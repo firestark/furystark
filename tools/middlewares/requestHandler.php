@@ -24,7 +24,9 @@ class requestHandler implements middleware
             $request->getUri ( )->getPath ( ) 
         );
 
+        foreach ( $arguments as $key => $value )
+            \input::set ( $key, $value );
+
         return call_user_func_array ( $task, $arguments );
     }
 }
-

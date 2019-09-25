@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en-GB" data-theme="<?php echo e(session::has ( 'theme' ) ? session::get ( 'theme' ) : 'dark'); ?>">
+<html lang="en-GB" data-theme="<?php echo e(session::has ( 'theme' ) ? session::get ( 'theme' ) : 'light'); ?>">
 
 <head>
     <meta charset="utf-8">

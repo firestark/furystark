@@ -21,8 +21,8 @@
 }
 
 .mdc-drawer {
-    @include mdc-drawer-item-activated-icon-ink-color(#d81b60);
-    @include mdc-drawer-item-activated-text-ink-color(#d81b60);
+    @include mdc-drawer-item-activated-icon-ink-color(#F44336);
+    @include mdc-drawer-item-activated-text-ink-color(#F44336);
 }
 
 .mdc-text-field {
