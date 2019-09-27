@@ -16,6 +16,11 @@ class input
         return $this->data;
     }
 
+    function has ( string $key ) : bool
+    {
+        return isset ( $this->data [ $key ] );
+    }
+
     function get ( string $key, $default = null )
     {
         return $this->data [ $key ] ?? $default;

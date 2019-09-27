@@ -1,6 +1,7 @@
 <?php
 
-route::get ( 'schemes/{id}/routines/{routine_id}/remove', function ( )
+route::get ( '/schemes/{id}/routines/{routine_id}/remove', function ( )
 {
-    dd ( 'removing routine' );
+    list ( $status, $payload ) = app::make ( 'i want to remove a routine' );
+    return app::call ( status::match ( $status ), $payload );
 } );
