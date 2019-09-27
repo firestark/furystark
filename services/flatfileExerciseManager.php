@@ -33,6 +33,11 @@ class flatfileExerciseManager implements exercise\manager
         $this->write ( );
     }
 
+    function find ( string $name ) : exercise
+    {
+        return $this->exercises [ $name ];
+    }
+
     private function write ( )
     {
         file_put_contents ( $this->file, serialize ( $this->exercises ) );

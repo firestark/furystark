@@ -13,4 +13,6 @@ interface manager
     function all ( ) : array;
 
     function remove ( string $name );
+
+    function find ( string $name ) : exercise;
 }
