@@ -15,31 +15,26 @@
         @include ( 'partials.form.fab', [ 'action' => 'save' ] )
     </form>
 
-    <div style="margin-top: 32px;">
-        <a href="/schemes/{{ $scheme->id }}/routines/add" class="mdc-button">
-            <span class="mdc-button__label">Add routine</span>
-        </a>
-        <ul id="routine-list" class="mdc-list mdc-list--two-line">
-            @foreach ( $scheme->routines as $routine )
-                <li class="mdc-list-item" tabindex="0">
-                    <span class="mdc-list-item__text">
-                        <span class="mdc-list-item__primary-text">{{ $routine->exercise->name }}</span>
-                        <span class="mdc-list-item__secondary-text">{{ $routine->sets }} x {{ $routine->reps }}</span>
-                    </span>
+    <ul id="routine-list" class="mdc-list mdc-list--two-line">
+        @foreach ( $scheme->routines as $routine )
+            <li class="mdc-list-item" tabindex="0">
+                <span class="mdc-list-item__text">
+                    <span class="mdc-list-item__primary-text">{{ $routine->exercise->name }}</span>
+                    <span class="mdc-list-item__secondary-text">{{ $routine->sets }} x {{ $routine->reps }}</span>
+                </span>
 
-                    <a href="/schemes/{{ $scheme->id }}/routines/{{ $routine->id }}/remove" class="mdc-list-item__meta material-icons" aria-hidden="true">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                            <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>
-                            <path d="M0 0h24v24H0z" fill="none"/>
-                        </svg>
-                    </a>    
-                </li>
-            @endforeach
-        </ul>
-    </div>
+                <a href="/schemes/{{ $scheme->id }}/routines/{{ $routine->id }}/remove" class="mdc-list-item__meta material-icons" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                    </svg>
+                </a>    
+            </li>
+        @endforeach
+    </ul>
 
 
-    
+    @include ( 'partials.link.fab', [ 'link' => "/schemes/{$scheme->id}/routines/add", 'action' => 'add' ] )
 
 @endsection
 
