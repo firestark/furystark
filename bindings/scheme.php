@@ -2,5 +2,8 @@
 
 app::bind ( scheme::class, function ( $app )
 {
-    return $app [ scheme\manager::class ]->find ( input::get ( 'id' ) );
+    if ( input::has ( 'id' ) )
+        return $app [ scheme\manager::class ]->find ( input::get ( 'id' ) );
+
+    return new scheme ( uniqid ( ), input::get ( 'name' ) );
 } );

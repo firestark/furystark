@@ -1,13 +1,12 @@
 <?php $__env->startSection( 'title' ); ?>
-    <?php echo e($scheme->name); ?>
-
+    <span id="title" contenteditable="true"><?php echo e($scheme->name); ?></span>
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection( 'content' ); ?>
-    <form action="/exercises" method="POST">
+    <form id="scheme_name" action="/schemes/<?php echo e($scheme->id); ?>" method="POST" style="display:none;">
         <div class="mdc-text-field">
-            <input name="name" type="text" id="name-field" class="mdc-text-field__input" value="<?php echo e($scheme->name); ?>">
-            <label class="mdc-floating-label" for="name-field">Name</label>
+            <input name="name" type="text" id="name_field" class="mdc-text-field__input" value="<?php echo e($scheme->name); ?>">
+            <label class="mdc-floating-label" for="name_field">Name</label>
             <div class="mdc-line-ripple"></div>
         </div>
 
@@ -48,6 +47,12 @@
     <script>
         const routineList = mdc.list.MDCList.attachTo ( document.getElementById ( 'routine-list' ) );
         routineList.listElements.map ( ( listItemEl ) => mdc.ripple.MDCRipple.attachTo ( listItemEl ) );
+
+        document.getElementById ( 'title' ).addEventListener ( 'blur', function ( ) 
+        {
+            name_field.value = this.innerHTML
+            scheme_name.submit ( );
+        } );
     </script>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make( 'page.overview' , \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\aron\Documents\Projects\firestark\furystark\app\io\web\views/schemes/edit.blade.php ENDPATH**/ ?>
