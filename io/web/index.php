@@ -1,6 +1,5 @@
 <?php
 
-use Jenssegers\Blade\Blade;
 use Relay\Relay;
 use Zend\Diactoros\Response as response;
 use Zend\Diactoros\Response\HtmlResponse as html;
@@ -17,7 +16,6 @@ $app->instance ( 'statuses', new firestark\statuses );
 $app->instance ( 'request', request::fromGlobals ( ) );
 $app->instance ( 'response', new firestark\http\response ( html::class ) );
 $app->instance ( 'router', new firestark\http\router );
-$app->instance ( 'view', new firestark\http\view ( new Blade ( __DIR__ . '/views', __DIR__ . '/storage/cache' ), $app [ 'response' ] ) );
 
 facade::setFacadeApplication ( $app );
 

@@ -21,7 +21,6 @@
         "firebase/php-jwt": "@stable",
         "firestark/ioc": "*",
         "firestark/support": "*",
-        "jenssegers/blade": "*",
         "nikic/fast-route": "@stable",
         "php": "^7.1.3",
         "psy/psysh": "*",
@@ -48,7 +47,11 @@
     "autoload-dev": {
         "psr-4": {
 
-        }
+        },
+        "files": [
+            "./app/features/bootstrap/start.php",
+            "./vendor/hamcrest/hamcrest-php/hamcrest/Hamcrest.php"
+        ]
     },
     "config": {
         "preferred-install": "dist"
