@@ -1,15 +1,13 @@
 <?php
 
-namespace firestark\http;
+namespace firestark;
 
 use closure;
+use http\route;
 
-class router
+
+class router extends \http\router
 {
-	use \accessible;
-
-	protected $routes = [ ];
-
     public function get ( string $uri, closure $task )
     {
         $this->add ( new route ( 'GET ' . $uri, $task ) );
@@ -29,14 +27,4 @@ class router
     {
         $this->add ( new route ( 'DELETE '. $uri, $task ) );
     }
-
-	public function add ( route $route )
-	{
-        $this->routes [ $route->uri ] = $route;
-	}
-
-	public function has ( string $uri ) : bool
-	{
-		return array_key_exists ( $uri, $this->routes );
-	}
 }

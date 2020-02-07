@@ -24,11 +24,6 @@ class session
         $_SESSION [ $key ] = $value;
     }
 
-    public function unset ( string $key )
-    {
-        unset ( $_SESSION [ $key ] );
-    }
-
     public function flash ( string $key, $value )
     {
         $_SESSION [ 'flash' ] [ $key ] = $value;
@@ -40,11 +35,6 @@ class session
             isset ( $_SESSION [ $key ] ) || 
             isset ( $_SESSION [ 'flash' ] [ $key ] ) || 
             isset ( $_SESSION [ 'deprecated' ] [ $key ] );
-    }
-
-    public function destroy ( )
-    {
-        session_destroy ( );
     }
 
     private function deprecate ( )
