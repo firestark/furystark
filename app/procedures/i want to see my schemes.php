@@ -6,6 +6,6 @@ when ( 'i want to see my schemes', then ( apply ( a (
     
 function ( scheme\manager $manager, person $person )
 {
-    $schemes = $manager->allFor ( $person );
+    $schemes = $manager->all ( $person );
     return [ 1000, with ( 'schemes' ) ];
 } ) ) ) );

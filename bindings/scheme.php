@@ -1,9 +1,14 @@
 <?php
 
-app::bind ( scheme::class, function ( )
+app::bind ( scheme::class, function ( $app )
 {
+    $id = input::get ( 'id', uniqid ( ) );
+
+    if ( $app [ scheme\manager::class ]->has ( $id ) )
+        return $app [ scheme\manager::class ]->find ( $id );
+
     return new scheme ( 
-        input::get ( 'id', uniqid ( ) ),
+        $id,
         'some scheme name'
     );
 } );

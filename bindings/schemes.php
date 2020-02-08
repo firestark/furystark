@@ -1,11 +1,9 @@
 <?php
 
-app::share ( 'schemes', function ( )
+app::share ( 'schemes', function ( $app )
 {
-    return [ 
-        new scheme ( uniqid ( ), 'Chest' ),
-        new scheme ( uniqid ( ), 'Legs' ),
-        new scheme ( uniqid ( ), 'Shoulders' ),
-        new scheme ( uniqid ( ), 'Back' ) 
-    ];
+    $person = strtolower ( $app [ person::class ]->name );
+    $file = __DIR__ . '/../storage/databases/files/' . $person . '/schemes.data';
+
+    return unserialize ( file_get_contents ( $file ) );
 } );

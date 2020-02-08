@@ -1,6 +1,6 @@
 <?php
 
-app::share ( scheme\manager::class, function ( )
+app::share ( scheme\manager::class, function ( $app )
 {
-    return new flatfileSchemeManager;
+    return new flatfileSchemeManager ( $app [ 'schemes' ] );
 } );

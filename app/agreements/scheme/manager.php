@@ -2,9 +2,13 @@
 
 namespace scheme;
 
-use person;
+use scheme;
 
 interface manager
 {
-    function allFor ( person $person ) : array;
+    function all ( ) : array;
+
+    function has ( $id ) : bool;
+
+    function find ( $id ) : scheme;
 }

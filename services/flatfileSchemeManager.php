@@ -2,13 +2,26 @@
 
 class flatfileSchemeManager implements scheme\manager
 {
-    function allFor ( person $person ) : array
+    private $schemes = [ ];
+
+    function __construct ( array $schemes )
     {
-        return [ 
-            new scheme ( uniqid ( ), 'Chest' ),
-            new scheme ( uniqid ( ), 'Legs' ),
-            new scheme ( uniqid ( ), 'Shoulders' ),
-            new scheme ( uniqid ( ), 'Back' ) 
-        ];
+        foreach ( $schemes as $scheme )
+            $this->schemes [ $scheme->id ] = $scheme;
+    }
+
+    function all ( ) : array
+    {
+        return $this->schemes;
+    }
+
+    function has ( $id ) : bool
+    {
+        return ( isset ( $this->schemes [ $id ] ) );
+    }
+
+    function find ( $id ) : scheme
+    {
+        return $this->schemes [ $id ];
     }
 }
