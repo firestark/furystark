@@ -9,8 +9,8 @@
 </head>
 
 <body>
-    <a href="?person=Martijn">Martijn</a>
-    <a href="?person=Aron">Aron</a>
+    <a href="/?person=Martijn">Martijn</a>
+    <a href="/?person=Aron">Aron</a>
 
     @yield ( 'page' )
 </body>

@@ -8,6 +8,6 @@ class scheme
     {
         $this->id = $id;
         $this->name = $name;
-        $this->exercises = [ ];
+        $this->exercises = $exercises;
     }
 }
