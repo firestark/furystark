@@ -10,4 +10,9 @@ class session
         $this->scheme = $scheme->id;
         $this->completions = $completions;
     }
+
+    function add ( completion $completion )
+    {
+        $this->completions [ ] = $completion;
+    }
 }

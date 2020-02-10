@@ -29,6 +29,11 @@ class flatfileSessionManager implements session\manager
         return $this->sessions [ $id ];
     }
 
+    function update ( session $session )
+    {
+        $this->sessions [ $session->id ] = $session;
+    }
+
     private function write ( )
 	{
 		file_put_contents ( $this->file, serialize ( $this->sessions ) );

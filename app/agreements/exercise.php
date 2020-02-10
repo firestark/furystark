@@ -2,10 +2,11 @@
 
 class exercise
 {
-    public $name, $sets, $reps;
+    public $id, $name, $sets, $reps;
 
-    function __construct ( string $name, int $sets, int $reps )
+    function __construct ( $id, string $name, int $sets, int $reps )
     {
+        $this->id = $id;
         $this->name = $name;
         $this->sets = $sets;
         $this->reps = $reps;

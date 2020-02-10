@@ -11,4 +11,6 @@ interface manager
     function has ( $id ) : bool;
 
     function find ( $id ) : session;
+
+    function update ( session $session );
 }

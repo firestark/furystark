@@ -6,9 +6,9 @@ $martijn = __DIR__ . '/../../storage/databases/files/martijn/schemes.data';
 function data ( )
 {
     $chest = [
-        new exercise ( 'bench press', 4, 8 ),
-        new exercise ( 'dumbbell press', 3, 10 ),
-        new exercise ( 'dumbbell flys', 3, 10 )
+        new exercise ( uniqid ( ), 'bench press', 4, 8 ),
+        new exercise ( uniqid ( ), 'dumbbell press', 3, 10 ),
+        new exercise ( uniqid ( ), 'dumbbell flys', 3, 10 )
     ];
     
     return serialize ( [ 
