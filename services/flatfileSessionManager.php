@@ -12,16 +12,21 @@ class flatfileSessionManager implements session\manager
 
     function add ( session $session )
     {
-        if ( $this->has ( $session ) )
+        if ( $this->has ( $session->id ) )
             return;
 
         $this->sessions [ $session->id ] = $session;
         $this->write ( );
     }
 
-    function has ( session $session ) : bool
+    function has ( $id ) : bool
     {
-        return isset ( $this->sessions [ $session->id ] );
+        return isset ( $this->sessions [ $id ] );
+    }
+
+    function find ( $id ) : session
+    {
+        return $this->sessions [ $id ];
     }
 
     private function write ( )

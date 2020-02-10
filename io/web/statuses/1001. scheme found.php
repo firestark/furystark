@@ -2,7 +2,7 @@
 
 use function compact as with;
 
-status::matching ( 1001, function ( scheme $scheme )
+status::matching ( 1001, function ( session $session )
 {
-    return view::make ( 'session', with ( 'scheme' ) );
+    return redirect::to ( '/session/' . $session->id );
 } );

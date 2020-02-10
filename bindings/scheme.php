@@ -1,8 +1,8 @@
 <?php
 
-app::bind ( scheme::class, function ( $app )
+app::bind ( scheme::class, function ( $app, array $data = [ ] )
 {
-    $id = input::get ( 'id', uniqid ( ) );
+    $id = $data [ 'id' ] ?? input::get ( 'id' ) ?? uniqid ( );
 
     if ( $app [ scheme\manager::class ]->has ( $id ) )
         return $app [ scheme\manager::class ]->find ( $id );

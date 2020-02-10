@@ -1,6 +1,13 @@
 <?php
 
-app::bind ( session::class, function ( $app )
+app::bind ( session::class, function ( $app, array $data )
 {
-    return new session ( uniqid ( ), $app [ scheme::class ], [ ] );
+    if ( isset ( $data [ 'id' ] ) && $app [ session\manager::class ]->has ( $data [ 'id' ] ) )
+        return $app [ session\manager::class ]->find ( $data [ 'id' ] );
+
+    return new session ( 
+        uniqid ( ), 
+        $app [ scheme::class ], 
+        [ ] 
+    );
 } );
