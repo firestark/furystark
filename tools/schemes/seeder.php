@@ -1,7 +1,5 @@
 <?php
 
-use scheme\exercise;
-
 $aron = __DIR__ . '/../../storage/databases/files/aron/schemes.data';
 $martijn = __DIR__ . '/../../storage/databases/files/martijn/schemes.data';
 

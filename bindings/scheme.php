@@ -9,6 +9,6 @@ app::bind ( scheme::class, function ( $app )
 
     return new scheme ( 
         $id,
-        'some scheme name'
+        ''
     );
 } );

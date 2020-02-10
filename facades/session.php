@@ -4,6 +4,6 @@ class session extends facade
 {
     public static function getFacadeAccessor ( )
     {
-        return 'session';
+        return 'firestark\session';
     }
 }

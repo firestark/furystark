@@ -1,7 +1,5 @@
 <?php
 
-namespace scheme;
-
 class exercise
 {
     public $name, $sets, $reps;
