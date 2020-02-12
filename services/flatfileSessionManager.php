@@ -31,7 +31,11 @@ class flatfileSessionManager implements session\manager
 
     function update ( session $session )
     {
+        if ( ! $this->has ( $session->id ) )
+            throw new exception ( "A session with id: {$session->id} does not exist." );
+
         $this->sessions [ $session->id ] = $session;
+        $this->write ( );
     }
 
     private function write ( )

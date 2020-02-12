@@ -5,22 +5,13 @@
 @endsection
 
 @section ( 'title' )
-    {{ $scheme->exercises [ $exercise - 1 ]->name }} set {{ $set }}
+    {{ $scheme->exercises [ $round - 1 ]->name }} set {{ $set }}
 @endsection
 
 @section ( 'page' )
-    {{-- @foreach ( $scheme->exercises as $exercise )
-        <h2>{{ $exercise->name }}</h2>
-
-        @for ( $i = 1; $i <= $exercise->sets; $i++ )
-            {{ $i }} <input type="number">
-        @endfor
-    @endforeach --}}
-
-    
-
     <form action="/session/{{ $session->id }}" method="POST">
-        <input type="hidden" name="exercise" value="{{ $scheme->exercises [ $exercise - 1 ]->id }}">
+        <input type="hidden" name="exercise" value="{{ $exercise }}">
+        <input type="hidden" name="round" value="{{ $round }}">
         <input type="hidden" name="set" value="{{ $set }}">
 
         <div class="mdc-text-field mdc-text-field--with-trailing-icon" id="exercise-field">
