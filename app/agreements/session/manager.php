@@ -13,7 +13,9 @@ interface manager
 
     function find ( $id ) : session;
 
+    function findBelongingTo ( scheme $scheme ) : array;
+
     function update ( session $session );
 
-    function findBelongingTo ( scheme $scheme ) : array;
+    function remove ( session $session );
 }

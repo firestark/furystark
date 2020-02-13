@@ -29,6 +29,15 @@ class flatfileSessionManager implements session\manager
         return $this->sessions [ $id ];
     }
 
+    function findBelongingTo ( scheme $scheme ) : array
+    {
+        foreach ( $this->sessions as $session )
+            if ( $session->scheme === $scheme->id )
+                $sessions [ ] = $session;
+
+        return $sessions ?? [ ];
+    }
+
     function update ( session $session )
     {
         if ( ! $this->has ( $session->id ) )
@@ -38,13 +47,10 @@ class flatfileSessionManager implements session\manager
         $this->write ( );
     }
 
-    function findBelongingTo ( scheme $scheme ) : array
+    function remove ( session $session )
     {
-        foreach ( $this->sessions as $session )
-            if ( $session->scheme === $scheme->id )
-                $sessions [ ] = $session;
-
-        return $sessions ?? [ ];
+        unset ( $this->sessions [ $session->id ] );
+        $this->write ( );
     }
 
     private function write ( )
