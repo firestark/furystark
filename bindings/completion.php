@@ -1,9 +1,9 @@
 <?php
 
-app::bind ( completion::class, function ( )
+app::bind ( completion::class, function ( $app, array $data )
 {
     return new completion (
-        input::get ( 'exercise' ),
-        input::get ( 'kg' )
+        $data [ 'exercise' ] ?? input::get ( 'exercise' ),
+        $data [ 'kg' ] ?? input::get ( 'kg' )
     );
 } );
