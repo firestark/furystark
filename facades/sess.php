@@ -1,6 +1,6 @@
 <?php
 
-class session extends facade
+class sess extends facade
 {
     public static function getFacadeAccessor ( )
     {

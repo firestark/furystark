@@ -32,8 +32,26 @@
         @yield ( 'page' )
     </main>
 
+    @if ( sess::has ( 'message' ) )
+        <div class="mdc-snackbar mdc-snackbar--leading">
+            <div class="mdc-snackbar__surface">
+                <div class="mdc-snackbar__label"
+                    role="status"
+                    aria-live="polite">
+                    {{ sess::get ( 'message' ) }}
+                </div>
+            </div>
+        </div>
+    @endif
+
 
     <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <script>        
+        @if ( sess::has ( 'message' ) )
+            const snackbar = mdc.snackbar.MDCSnackbar.attachTo ( document.querySelector ( '.mdc-snackbar' ) );
+            snackbar.open ( );
+        @endif
+    </script>
     @yield ( 'js' )
 </body>
 
