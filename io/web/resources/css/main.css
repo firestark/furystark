@@ -7,15 +7,24 @@ html, body {
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 /* Firefox */
 input[type=number] {
-  -moz-appearance:textfield;
+    -moz-appearance:textfield;
 }
 
 main {
-  padding: 16px;
+    padding: 16px;
+}
+
+
+ul.mdc-list.linked .mdc-list-item__text,
+ul.mdc-list.linked .mdc-list-item__text a {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    align-items: center;
 }

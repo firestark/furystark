@@ -5,7 +5,7 @@
 @endsection
 
 @section ( 'page' )
-    <ul class="mdc-list">
+    <ul class="mdc-list linked">
         @foreach ( $schemes as $scheme )
             <li class="mdc-list-item">
                 <span 
