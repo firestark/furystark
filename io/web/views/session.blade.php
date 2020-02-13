@@ -23,9 +23,7 @@
             @endfor
         @endforeach
 
-        <button type="submit" class="mdc-button mdc-button--raised">
-            <span class="mdc-button__label">Submit</span>
-        </button>
+        @include ( 'partials.form.fab', [ 'action' => 'save' ] )
     </form>
 @endsection
 

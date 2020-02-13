@@ -28,3 +28,10 @@ ul.mdc-list.linked .mdc-list-item__text a {
     display: grid;
     align-items: center;
 }
+
+.mdc-fab {
+    position: absolute;
+    bottom: 34px;
+    right: 40px;
+    z-index: 5000;
+}
