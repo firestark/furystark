@@ -38,6 +38,15 @@ class flatfileSessionManager implements session\manager
         $this->write ( );
     }
 
+    function findBelongingTo ( scheme $scheme ) : array
+    {
+        foreach ( $this->sessions as $session )
+            if ( $session->scheme === $scheme->id )
+                $sessions [ ] = $session;
+
+        return $sessions ?? [ ];
+    }
+
     private function write ( )
 	{
 		file_put_contents ( $this->file, serialize ( $this->sessions ) );

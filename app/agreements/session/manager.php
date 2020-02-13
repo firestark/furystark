@@ -3,6 +3,7 @@
 namespace session;
 
 use session;
+use scheme;
 
 interface manager
 {
@@ -13,4 +14,6 @@ interface manager
     function find ( $id ) : session;
 
     function update ( session $session );
+
+    function findBelongingTo ( scheme $scheme ) : array;
 }

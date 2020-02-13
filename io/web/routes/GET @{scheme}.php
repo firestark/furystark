@@ -2,5 +2,5 @@
 
 route::get ( '/{id}', function ( )
 {
-    return app::fulfill ( 'i want to start a new session' );
+    return app::fulfill ( 'i want to see my scheme sessions' );
 } );
