@@ -3,11 +3,12 @@
 
 class completion
 {
-    public $exercise, $kg;
+    public $exercise, $set, $kg;
 
-    function __construct ( $exercise, float $kg )
+    function __construct ( $exercise, int $set, float $kg )
     {
         $this->exercise = $exercise;
+        $this->set = $set;
         $this->kg = $kg;
     }
 }

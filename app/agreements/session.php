@@ -11,9 +11,9 @@ class session
         $this->completions = $completions;
     }
 
-    function set ( completion $completion, int $set )
+    function set ( completion $completion )
     {
-        $this->completions [ $completion->exercise ] [ $set - 1 ] = $completion->kg;
+        $this->completions [ $completion->exercise ] [ $completion->set - 1 ] = $completion->kg;
     }
 
     function getCompletion ( $exercise, int $set )
