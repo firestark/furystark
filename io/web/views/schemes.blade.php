@@ -19,8 +19,6 @@
                     </a>
                 </span>
                 
-                
-
                 <span class="mdc-list-item__text">
                     <a href="/{{ $scheme->id }}?person={{ $person->name }}">{{ $scheme->name }}</a>
                 </span>
