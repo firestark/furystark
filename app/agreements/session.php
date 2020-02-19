@@ -15,4 +15,13 @@ class session
     {
         $this->completions [ ] = $completion;
     }
+
+    function getCompletion ( $exerciseId, int $set )
+    {
+        foreach ( $this->completions as $completion )
+            if ( $completion->exercise === $exerciseId )
+                $completions [ ] = $completion;
+
+        return $completions [ $set - 1 ] ?? null;
+    }
 }

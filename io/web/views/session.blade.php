@@ -15,7 +15,12 @@
             <h2 class="mdc-typography--subtitle1">{{ $exercise->name }}</h2>
             @for ( $i = 1; $i <= $exercise->sets; $i++ )
                 <div class="mdc-text-field">
-                    <input type="text" id="{{ $exercise->id }}-{{ $i }}" class="mdc-text-field__input" name="exercises[{{ $exercise->id }}][{{ $i }}]">
+                    <input 
+                        type="text" 
+                        id="{{ $exercise->id }}-{{ $i }}" 
+                        class="mdc-text-field__input" 
+                        name="exercises[{{ $exercise->id }}][{{ $i }}]" 
+                        value="{{ $session->getCompletion ( $exercise->id, $i )->kg ?? '' }}">
                     <label for="{{ $exercise->id }}-{{ $i }}" class="mdc-floating-label">Set {{ $i }}</label>
                     <div class="mdc-line-ripple"></div>
                 </div>
