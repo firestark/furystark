@@ -23,6 +23,8 @@ $app->instance ( 'view',
     ) 
 );
 
+
+
 facade::setFacadeApplication ( $app );
 
 including ( __DIR__ . '/../../bindings' );
@@ -37,4 +39,4 @@ $kernel = new firestark\kernel ( $dispatcher );
 $response = $kernel->handle ( $app [ 'request' ] );
 
 $response->send ( );
-$app [ 'firestark\session' ]->flash ( 'uri', $app [ 'request' ]->uri . '?' . http_build_query ( $app [ 'request' ]->parameters ) );
+$app [ 'firestark\session' ]->flash ( 'uri', $app [ 'request' ]->uri );

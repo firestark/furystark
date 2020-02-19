@@ -2,5 +2,5 @@
 
 app::share ( person::class, function ( )
 {
-    return new person ( input::get ( 'person', 'Aron' ) );
+    return new person ( sess::get ( 'person', 'Aron' ) );
 } );

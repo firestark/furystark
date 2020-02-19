@@ -11,7 +11,7 @@
                 <span 
                     class="mdc-list-item__graphic" 
                     aria-hidden="true">
-                    <a href="/{{ $scheme->id }}/start?person={{ $person->name }}">
+                    <a href="/{{ $scheme->id }}/start">
                         <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
                             <path d="M8 5v14l11-7z"/>
                             <path d="M0 0h24v24H0z" fill="none"/>
@@ -20,7 +20,7 @@
                 </span>
                 
                 <span class="mdc-list-item__text">
-                    <a href="/{{ $scheme->id }}?person={{ $person->name }}">{{ $scheme->name }}</a>
+                    <a href="/{{ $scheme->id }}">{{ $scheme->name }}</a>
                 </span>
 
                 <a href="#" class="mdc-list-item__meta" aria-hidden="true">
