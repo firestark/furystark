@@ -11,7 +11,7 @@
 @section ( 'page' )
     <h2>Sessions</h2>
 
-    <ul class="mdc-list">
+    <ul class="mdc-list linked">
         @foreach ( $sessions as $session )
             <li class="mdc-list-item">
                 {{-- <span 
