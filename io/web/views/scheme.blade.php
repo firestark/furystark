@@ -25,8 +25,6 @@
                     </a>
                 </span> --}}
                 
-                
-
                 <span class="mdc-list-item__text">
                     <a href="/session/{{ $session->id }}?person={{ $person->name }}">{{ $session->id }}</a>
                 </span>
