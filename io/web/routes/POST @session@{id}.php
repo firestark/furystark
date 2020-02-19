@@ -14,5 +14,6 @@ route::post ( '/session/{id}', function ( )
             app::fulfill ( 'i want to add a completion', with ( 'completion' ) );
         }
 
+    sess::flash ( 'message', 'Session saved.' );
     return redirect::to ( '/' );
 } );
