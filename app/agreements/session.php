@@ -13,15 +13,11 @@ class session
 
     function add ( completion $completion )
     {
-        $this->completions [ ] = $completion;
+        $this->completions [ $completion->exercise ] [ ] = $completion->kg;
     }
 
-    function getCompletion ( $exerciseId, int $set )
+    function getCompletion ( $exercise, int $set )
     {
-        foreach ( $this->completions as $completion )
-            if ( $completion->exercise === $exerciseId )
-                $completions [ ] = $completion;
-
-        return $completions [ $set - 1 ] ?? null;
+        return $this->completions [ $exercise ] [ $set -1 ] ?? null;
     }
 }

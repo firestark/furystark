@@ -20,7 +20,7 @@
                         id="{{ $exercise->id }}-{{ $i }}" 
                         class="mdc-text-field__input" 
                         name="exercises[{{ $exercise->id }}][{{ $i }}]" 
-                        value="{{ $session->getCompletion ( $exercise->id, $i )->kg ?? '' }}">
+                        value="{{ $session->getCompletion ( $exercise->id, $i ) ?? '' }}">
                     <label for="{{ $exercise->id }}-{{ $i }}" class="mdc-floating-label">Set {{ $i }}</label>
                     <div class="mdc-line-ripple"></div>
                 </div>
