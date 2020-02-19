@@ -37,4 +37,4 @@ $kernel = new firestark\kernel ( $dispatcher );
 $response = $kernel->handle ( $app [ 'request' ] );
 
 $response->send ( );
-$app [ 'firestark\session' ]->flash ( 'uri', $app [ 'request' ]->uri );
+$app [ 'firestark\session' ]->flash ( 'uri', $app [ 'request' ]->uri . '?' . http_build_query ( $app [ 'request' ]->parameters ) );
