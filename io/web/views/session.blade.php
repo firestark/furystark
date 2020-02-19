@@ -14,10 +14,9 @@
         @foreach ( $scheme->exercises as $exercise )
             <h2 class="mdc-typography--subtitle1">{{ $exercise->name }}</h2>
             @for ( $i = 1; $i <= $exercise->sets; $i++ )
-                <div class="mdc-text-field mdc-text-field--with-trailing-icon">
+                <div class="mdc-text-field">
                     <input type="text" id="{{ $exercise->id }}-{{ $i }}" class="mdc-text-field__input" name="exercises[{{ $exercise->id }}][{{ $i }}]">
                     <label for="{{ $exercise->id }}-{{ $i }}" class="mdc-floating-label">Set {{ $i }}</label>
-                    <i class="material-icons mdc-text-field__icon">KG</i>
                     <div class="mdc-line-ripple"></div>
                 </div>
             @endfor
