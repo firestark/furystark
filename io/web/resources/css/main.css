@@ -3,6 +3,7 @@ html, body {
     padding: 0;
     height: 100vh;
     width: 100vw;
+    box-sizing: border-box;;
 }
 
 input::-webkit-outer-spin-button,
@@ -38,6 +39,17 @@ main {
     bottom: 34px;
     right: 40px;
     z-index: 5000;
+}
+
+.mdc-data-table {
+    overflow-x: auto;
+}
+
+.mdc-data-table tr th:first-child,
+.mdc-data-table tr td:first-child {
+    border-right: 1px solid rgba(0,0,0,.12);
+    /* position: sticky;
+    left: 0; */
 }
 
 .mdc-data-table input {

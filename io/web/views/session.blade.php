@@ -5,7 +5,7 @@
 @endsection
 
 @section ( 'title' )
-    {{ $scheme->name }}
+    {{ $scheme->name }} session
 @endsection
 
 @section ( 'page' )
