@@ -12,7 +12,7 @@
     <h2>Sessions</h2>
 
     <ul class="mdc-list linked">
-        @foreach ( $sessions as $session )
+        @foreach ( $sessions as $key => $session )
             <li class="mdc-list-item">
                 {{-- <span 
                     class="mdc-list-item__graphic" 
@@ -26,7 +26,7 @@
                 </span> --}}
                 
                 <span class="mdc-list-item__text">
-                    <a href="/session/{{ $session->id }}?person={{ $person->name }}">{{ $session->id }}</a>
+                    <a href="/session/{{ $session->id }}?person={{ $person->name }}">Session {{ $key + 1 }}</a>
                 </span>
 
                 <a href="/session/{{ $session->id }}/remove" class="mdc-list-item__meta" aria-hidden="true">
