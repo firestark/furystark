@@ -39,3 +39,15 @@ main {
     right: 40px;
     z-index: 5000;
 }
+
+.mdc-data-table input {
+    outline: none;
+    border: none;
+    background-color: transparent;
+    padding: 16px 0;
+    box-sizing: border-box;
+}
+
+.mdc-data-table input[type='number'] {
+    text-align: right;
+}
