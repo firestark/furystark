@@ -20,9 +20,13 @@ main {
     padding: 16px;
 }
 
+.mdc-list a {
+    text-decoration: none;
+    color: inherit;
+}
 
-ul.mdc-list.linked .mdc-list-item__text,
-ul.mdc-list.linked .mdc-list-item__text a {
+.mdc-list.linked .mdc-list-item__text,
+.mdc-list.linked .mdc-list-item__text a {
     width: 100%;
     height: 100%;
     display: grid;
