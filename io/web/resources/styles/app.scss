@@ -36,7 +36,8 @@ main {
 
 .mdc-list a {
     text-decoration: none;
-    color: inherit;
+    color: var(--mdc-theme-text-icon-on-background, rgba(0,0,0,0.38));
+    fill: var(--mdc-theme-text-icon-on-background, rgba(0,0,0,0.38));
     display: inherit;
 }
 
