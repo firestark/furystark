@@ -38,4 +38,6 @@
             </li>
         @endforeach
     </ul>
+
+    @include ( 'partials.link.fab', [ 'link' => "/{$scheme->id}/start", 'action' => 'add' ] )
 @endsection
