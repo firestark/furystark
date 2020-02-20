@@ -37,7 +37,7 @@
                                 </td>
                             @endfor
                             @if ( $exercise->sets === 3 )
-                                <td class="mdc-data-table__cell mdc-data-table__cell--numeric" style="color: rgba(0,0,0,.6);">
+                                <td class="mdc-data-table__cell mdc-data-table__cell--numeric disabled">
                                     n/a
                                 </td>
                             @endif
