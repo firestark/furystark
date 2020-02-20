@@ -10,7 +10,7 @@
 
 @section ( 'page' )
     <form action="/session/{{ $session->id }}" method="POST" style="display: grid;">
-        <div class="mdc-data-table" style="margin: 0 auto; max-width: 100%;">
+        <div class="mdc-data-table">
             <table class="mdc-data-table__table" aria-label="Dessert calories">
                 <thead>
                     <tr class="mdc-data-table__header-row">
