@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en-GB">
+<html lang="en-GB" data-theme="{{ sess::get ( 'theme', 'light' ) }}">
 
 <head>
     <meta charset="utf-8">
@@ -18,7 +18,8 @@
                 <span class="mdc-top-app-bar__title">@yield ( 'title' )</span>
             </section>
             <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end">                
-                        
+                
+                @include ( 'partials.theme-switcher' )
                 @include ( 'partials.account' )
             </section>
         </div>
