@@ -1,4 +1,4 @@
-@extends ( 'master' )
+@extends ( 'page.main' )
 
 @section ( 'title' )
     My schemes
