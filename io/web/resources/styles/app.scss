@@ -98,9 +98,15 @@ input[type=number] {
 
 .mdc-list a {
     text-decoration: none;
+    color: var(--mdc-theme-on-surface, #000);
+    fill: var(--mdc-theme-on-surface, #000);
+    display: inherit;
+}
+
+.mdc-list .mdc-list-item__graphic a,
+.mdc-list .mdc-list-item__meta {
     color: var(--mdc-theme-text-icon-on-background, rgba(0,0,0,0.38));
     fill: var(--mdc-theme-text-icon-on-background, rgba(0,0,0,0.38));
-    display: inherit;
 }
 
 .mdc-list.linked .mdc-list-item__text,
@@ -399,6 +405,10 @@ main {
     height: 100%;
     display: flex;
     color: var(--mdc-theme-text-primary-on-background, #343434);
+
+    li {
+        width: 100%;
+    }
 }
 
 .mdc-list--linked.mdc-list--avatar-list a:nth-child(2) {
