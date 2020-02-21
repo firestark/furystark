@@ -22,7 +22,7 @@ $app->instance ( 'view',
         new Blade ( __DIR__ . '/views', __DIR__ . '/storage/cache/blade' ) 
     ) 
 );
-
+$app->instance ( 'guard', new jwtSessionGuard ( $app [ 'firestark\session' ] ) );
 
 
 facade::setFacadeApplication ( $app );
@@ -35,7 +35,7 @@ including ( __DIR__ . '/../../app/procedures' );
 
 
 $dispatcher = new http\dispatcher ( $app [ 'router' ]->routes, $app [ 'router' ]->groups );
-$kernel = new firestark\kernel ( $dispatcher );
+$kernel = new firestark\kernel ( $dispatcher, $app [ 'guard' ], $app [ 'firestark\session' ], $app [ 'redirector' ] );
 $response = $kernel->handle ( $app [ 'request' ] );
 
 $response->send ( );

@@ -23,7 +23,8 @@
         "firestark/support": "*",
         "jenssegers/blade": "*",
         "php": "^7.1.3",
-        "psy/psysh": "*"
+        "psy/psysh": "*",
+        "firebase/php-jwt": "dev-master"
 	},
     "require-dev": {
         "firestark/testing": "*"

@@ -2,5 +2,6 @@
 
 route::post ( '/login', function ( )
 {
+    input::
     
 } );

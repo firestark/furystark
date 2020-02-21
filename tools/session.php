@@ -19,6 +19,13 @@ class session
             ( $_SESSION [ 'deprecated' ] [ $key ] ?? $default ) );
     }
 
+    public function getAndForget ( string $key, $default = null )
+    {
+        $value = $this->get ( $key, $default );
+        $this->unset ( $key );
+        return $value;
+    }
+
     public function set ( string $key, $value )
     {
         $_SESSION [ $key ] = $value;
@@ -35,6 +42,11 @@ class session
             isset ( $_SESSION [ $key ] ) || 
             isset ( $_SESSION [ 'flash' ] [ $key ] ) || 
             isset ( $_SESSION [ 'deprecated' ] [ $key ] );
+    }
+
+    public function unset ( string $key )
+    {
+        unset ( $_SESSION [ $key ] );
     }
 
     private function deprecate ( )
