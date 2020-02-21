@@ -13,18 +13,7 @@
 
     <ul class="mdc-list linked">
         @foreach ( $sessions as $key => $session )
-            <li class="mdc-list-item">
-                {{-- <span 
-                    class="mdc-list-item__graphic" 
-                    aria-hidden="true">
-                    <a href="/{{ $scheme->id }}/start">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
-                            <path d="M8 5v14l11-7z"/>
-                            <path d="M0 0h24v24H0z" fill="none"/>
-                        </svg>
-                    </a>
-                </span> --}}
-                
+            <li class="mdc-list-item">                
                 <span class="mdc-list-item__text">
                     <a href="/session/{{ $session->id }}">Session {{ $key + 1 }}</a>
                 </span>
