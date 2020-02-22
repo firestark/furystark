@@ -7,6 +7,9 @@ require __DIR__ . '/../../vendor/autoload.php';
 // require __DIR__ . '/../../tools/schemes/seeder.php';
 // dd ( 'seeded' );
 
+// require __DIR__ . '/../../tools/users/seeder.php';
+// dd ( 'seeded' );
+
 
 $app = new firestark\app;
 $app->instance ( 'app', $app );
