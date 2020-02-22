@@ -5,19 +5,11 @@
 
     <div class="mdc-menu mdc-menu-surface" id="avatar-menu">
         <ul class="mdc-list mdc-list--linked" role="menu" aria-hidden="true" aria-orientation="vertical" tabindex="-1" style="min-width: 240px;">
-            @if ( app::make ( person::class )->name === 'Aron' )
-                <a href="/person/Martijn">
-                    <li class="mdc-list-item" role="menuitem">
-                        <span class="mdc-list-item__text">Martijn</span>
-                    </li>
-                </a>
-            @else
-                <a href="/person/Aron">
-                    <li class="mdc-list-item" role="menuitem">
-                        <span class="mdc-list-item__text">Aron</span>
-                    </li>
-                </a>
-            @endif
+            <a href="/logout">
+                <li class="mdc-list-item" role="menuitem">
+                    <span class="mdc-list-item__text">Logout</span>
+                </li>
+            </a>
         </ul>
     </div>
 </div>
