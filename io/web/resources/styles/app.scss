@@ -177,6 +177,7 @@ input[type=number] {
 
 .disabled {
     color: var(--mdc-theme-text-secondary-on-background);
+    cursor: default;
 }
 
 /* ---------------------------------------------------------
