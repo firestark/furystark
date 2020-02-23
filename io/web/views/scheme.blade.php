@@ -9,8 +9,6 @@
 @endsection
 
 @section ( 'page' )
-    <h2>Sessions</h2>
-
     <ul class="mdc-list linked">
         @foreach ( $sessions as $key => $session )
             <li class="mdc-list-item">                
