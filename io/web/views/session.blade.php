@@ -24,7 +24,7 @@
                 <tbody class="mdc-data-table__content">
                     @foreach ( $scheme->exercises as $exercise )
                         <tr class="mdc-data-table__row">
-                            <td class="mdc-data-table__cell">{{ $exercise->name }}</td>
+                            <td class="mdc-data-table__cell">{{ $exercise->name }} ({{ $exercise->sets }}x{{ $exercise->reps }})</td>
 
                             @for ( $i = 1; $i <= $exercise->sets; $i++ )
                                 <td class="mdc-data-table__cell mdc-data-table__cell--numeric">
