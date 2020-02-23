@@ -175,6 +175,10 @@ input[type=number] {
     color: var(--mdc-theme-on-surface);
 }
 
+.mdc-data-table .empty input[type='number'] {
+    color: var(--mdc-theme-text-secondary-on-background);
+}
+
 .disabled {
     color: var(--mdc-theme-text-secondary-on-background);
     cursor: default;
