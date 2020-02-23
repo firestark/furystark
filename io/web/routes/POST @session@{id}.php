@@ -15,5 +15,5 @@ route::post ( '/session/{id}', function ( )
         }
 
     sess::flash ( 'message', 'Session saved.' );
-    return redirect::to ( '/' );
+    return redirect::back ( );
 } );
