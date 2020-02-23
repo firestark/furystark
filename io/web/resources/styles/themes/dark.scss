@@ -3,7 +3,7 @@
 @import "@material/top-app-bar/mdc-top-app-bar";
 
 :root[data-theme="dark"] {
-    --mdc-theme-primary: #d81b60;
+    --mdc-theme-primary: #F44336;
     --mdc-theme-secondary: #fff;
     --mdc-theme-background: #1D1D1D;
     --mdc-theme-surface: #181617;
@@ -50,4 +50,10 @@
     .mdc-drawer {
         @include mdc-drawer-fill-color-accessible(#181617);
     }
+
+    .mdc-data-table tr:hover {
+        td:first-child {
+            background-color: #171516;
+        }
+    }    
 }

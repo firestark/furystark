@@ -3,7 +3,7 @@
 @import "@material/top-app-bar/mdc-top-app-bar";
 
 :root[data-theme="light"] {
-    --mdc-theme-primary: #d81b60;
+    --mdc-theme-primary: #F44336;
     --mdc-theme-secondary: #fff;
     --mdc-theme-background: #fafafa;
     --mdc-theme-surface: #fff;
@@ -35,5 +35,11 @@
 
     .mdc-drawer {
         @include mdc-drawer-surface-fill-color(#fff);
+    }
+
+    .mdc-data-table tr:hover {
+        td:first-child {
+            background-color: #f5f5f5;
+        }
     }
 }
