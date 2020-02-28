@@ -1,6 +1,5 @@
 <?php
 
-route::get ( '/login', function ( )
-{
-    return view::make ( 'login' );
-} );
+Route::get('/login', function() {
+    return View::make('login');
+});

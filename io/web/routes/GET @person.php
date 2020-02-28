@@ -1,7 +1,6 @@
 <?php
 
-route::get ( '/person/{name}', function ( string $name )
-{
-    sess::set ( 'person', $name );
-    return redirect::to ( '/' );
-} );
+Route::get('/person/{name}', function(string $name) {
+    Sess::set('person', $name);
+    return Redirect::to('/');
+});

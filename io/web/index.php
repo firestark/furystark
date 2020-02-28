@@ -1,34 +1,24 @@
 <?php
 
+use Firestark\Http\Router;
 use Jenssegers\Blade\Blade;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
+use Relay\Relay;
 
 require __DIR__ . '/../../vendor/autoload.php';
-
-// require __DIR__ . '/../../tools/schemes/seeder.php';
-// dd ( 'seeded' );
-
-// require __DIR__ . '/../../tools/users/seeder.php';
-// dd ( 'seeded' );
+require __DIR__ . '/../../tools/helpers.php';
 
 
-$app = new firestark\app;
-$app->instance ( 'app', $app );
-$app->instance ( 'firestark\session', new firestark\session );
-$app->instance ( 'statuses', new firestark\statuses );
-$app->instance ( 'request', firestark\request::capture ( ) );
-$app->instance ( 'response', new http\response\factory ( firestark\response::class ) );
-$app->instance ( 'redirector', new firestark\redirector ( '', $app [ 'firestark\session' ]->get ( 'uri', '/' ) ) );
-$app->instance ( 'router', new firestark\router );
-$app->instance ( 'view', 
-    new firestark\view ( 
-        $app [ 'response' ], 
-        new Blade ( __DIR__ . '/views', __DIR__ . '/storage/cache/blade' ) 
-    ) 
-);
-$app->instance ( 'guard', new jwtSessionGuard ( $app [ 'firestark\session' ] ) );
+$app = new Firestark\App;
+$app->instance('app', $app);
+$app->instance('router', new Router);
+$app->instance('response', new Firestark\Http\Response(Laminas\Diactoros\Response\HtmlResponse::class));
+$app->instance('status', new Firestark\Status);
+$app->instance('sess', new Firestark\Session);
+$app->instance('view', new Firestark\View($app['response'], new Blade(__DIR__ . '/views', __DIR__ . '/storage/cache/blade')));
 
-
-facade::setFacadeApplication ( $app );
+Facade::setFacadeApplication($app);
 
 including ( __DIR__ . '/../../bindings' );
 including ( __DIR__ . '/bindings' );
@@ -37,9 +27,16 @@ including ( __DIR__ . '/statuses' );
 including ( __DIR__ . '/../../app/procedures' );
 
 
-$dispatcher = new http\dispatcher ( $app [ 'router' ]->routes, $app [ 'router' ]->groups );
-$kernel = new firestark\kernel ( $dispatcher, $app [ 'guard' ], $app [ 'firestark\session' ], $app [ 'redirector' ] );
-$response = $kernel->handle ( $app [ 'request' ] );
+$app->instance('request', Laminas\Diactoros\ServerRequestFactory::fromGlobals());
 
-$response->send ( );
-$app [ 'firestark\session' ]->flash ( 'uri', $app [ 'request' ]->uri );
+$relay = new Relay([
+    (new Middlewares\Debugbar(null, $app['response']))->inline(),
+    (new Middlewares\Whoops(null, $app['response']))->catchErrors(false),
+    new \Firestark\Middlewares\Redirect($app),
+    new \Firestark\Middlewares\Input($app),
+    new \Firestark\Middlewares\Auth($app),
+    new \Firestark\Middlewares\RequestHandler($app['router'], $app['status']),
+]);
+    
+$response = $relay->handle($app['request']);
+(new Laminas\HttpHandlerRunner\Emitter\SapiEmitter)->emit($response);

@@ -1,10 +1,10 @@
 <?php
 
-use firestark\userManager;
+use Firestark\UserManager;
 
-app::share ( userManager::class, function ( $app )
-{
-    return new flatfileUserManager (
-        $app [ 'users file' ],
-        $app [ 'users' ] );
-} );
+App::share(UserManager::class, function($app): UserManager {
+    return new FlatfileUserManager(
+        $app['users file'],
+        $app['users']
+    );
+});

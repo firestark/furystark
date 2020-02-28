@@ -1,6 +1,5 @@
 <?php
 
-route::get ( '/', function ( ) 
-{
-    return app::fulfill ( 'i want to see my schemes' );
-} );
+Route::get('/', function() {
+    return App::fulfill('i want to see my schemes');
+});

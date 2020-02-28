@@ -1,6 +1,5 @@
 <?php
 
-route::get ( '/session/{id}/remove', function ( )
-{
-    return app::fulfill ( 'i want to remove a scheme session' );
-} );
+Route::get('/session/{id}/remove', function() {
+    return App::fulfill('i want to remove a scheme session');
+});

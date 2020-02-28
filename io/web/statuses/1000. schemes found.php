@@ -2,8 +2,7 @@
 
 use function compact as with;
 
-status::matching ( 1000, function ( array $schemes )
-{
-    $person = app::make ( person::class );
-    return view::make ( 'schemes', with ( 'schemes', 'person' ) );
-} );
+Status::matching(1000, function(array $schemes) {
+    $person = App::make(person::class);
+    return View::make('schemes', with('schemes', 'person'));
+});

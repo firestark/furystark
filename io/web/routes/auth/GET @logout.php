@@ -1,9 +1,8 @@
 <?php
 
-route::get ( '/logout', function ( )
-{
-    guard::invalidate ( );
+Route::get('/logout', function() {
+    Guard::invalidate();
     
-    sess::flash ( 'message', 'Successfully logged out.' );
-    return redirect::to ( '/login' );
-} );
+    Sess::flash('message', 'Successfully logged out.');
+    return Redirect::to('/login');
+});

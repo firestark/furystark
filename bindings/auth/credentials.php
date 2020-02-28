@@ -1,12 +1,11 @@
 <?php
 
-app::bind ( 'credentials', function ( $app ) : \firestark\credentials
-{
-    if ( guard::stamped ( ) )
-        return guard::current ( );
+App::bind('credentials', function($app): \Firestark\Credentials {
+    if (Guard::stamped())
+        return Guard::current();
 
-    return new firestark\credentials (
-        input::get ( 'username', '' ),
-        input::get ( 'password', '' )
+    return new \Firestark\Credentials(
+        Input::get('username', ''),
+        Input::get('password', '')
     );
-} );
+});

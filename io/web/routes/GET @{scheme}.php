@@ -1,6 +1,5 @@
 <?php
 
-route::get ( '/{id}', function ( )
-{
-    return app::fulfill ( 'i want to see my scheme sessions' );
-} );
+Route::get('/{id}', function($request, $params) {
+    return App::fulfill('i want to see my scheme sessions');
+});

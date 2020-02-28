@@ -1,18 +1,17 @@
 <?php
 
-use firestark\userManager;
+use Firestark\UserManager;
 
-route::post ( '/login', function ( )
-{
-    $credentials = app::make ( 'credentials' );
+Route::post( '/login', function() {
+    $credentials = App::make('credentials');
     
-    if ( ! app::make ( userManager::class )->has ( $credentials ) )
+    if (! App::make(UserManager::class)->has($credentials))
     {
-        sess::flash ( 'message', 'Invalid credentials.' );
-        return redirect::back ( );
+        Sess::flash('message', 'Invalid credentials.');
+        return Redirect::back();
     }
 
-    guard::stamp ( $credentials );
-    sess::flash ( 'message', 'Logged in.' );
-    return redirect::to ( '/' );
+    Sess::set('token', Guard::stamp($credentials));
+    Sess::flash('message', 'Logged in.');
+    return Redirect::to('/');
 } );

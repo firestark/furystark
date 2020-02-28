@@ -2,18 +2,17 @@
 
 use function compact as with;
 
-route::post ( '/session/{id}', function ( )
-{
-    foreach ( input::get ( 'exercises' ) as $exercise => $sets )
-        foreach ( $sets as $set => $kg )
+Route::post('/session/{id}', function() {
+    foreach (Input::get('exercises') as $exercise => $sets)
+        foreach ($sets as $set => $kg)
         {
-            if ( empty ( $kg ) )
+            if (empty($kg))
                 break;
                 
-            $completion = app::make ( completion::class, with ( 'exercise', 'set', 'kg' ) );
-            app::fulfill ( 'i want to add a completion', with ( 'completion' ) );
+            $completion = App::make(completion::class, with('exercise', 'set', 'kg'));
+            App::fulfill('i want to add a completion', with('completion'));
         }
 
-    sess::flash ( 'message', 'Session saved.' );
-    return redirect::back ( );
-} );
+    Sess::flash('message', 'Session saved.');
+    return Redirect::back();
+});

@@ -1,7 +1,6 @@
 <?php
 
-status::matching ( 1005, function ( )
-{
-    sess::flash ( 'message', 'Session removed.' );
-    return redirect::back ( );
-} );
+Status::matching(1005, function() {
+    Sess::flash('message', 'Session removed.');
+    return Redirect::back();
+});

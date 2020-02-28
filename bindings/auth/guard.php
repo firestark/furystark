@@ -1,8 +1,7 @@
 <?php
 
-app::share ( 'guard', function ( $app ) : \firestark\guard
-{
-    return new jwtSessionGuard (
-        $app [ 'firestark\session' ] 
+App::share('guard', function($app): \Firestark\Guard {
+    return new JwtGuard(
+        $app['sess']->get('token', '')
     );
-} );
+});
