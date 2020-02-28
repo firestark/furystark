@@ -9,7 +9,7 @@ Route::post('/session/{id}', function() {
             if (empty($kg))
                 break;
                 
-            $completion = App::make(completion::class, with('exercise', 'set', 'kg'));
+            $completion = App::make(Completion::class, with('exercise', 'set', 'kg'));
             App::fulfill('i want to add a completion', with('completion'));
         }
 

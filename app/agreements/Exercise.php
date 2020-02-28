@@ -1,10 +1,10 @@
 <?php
 
-class exercise
+class Exercise
 {
     public $id, $name, $sets, $reps;
 
-    function __construct ( $id, string $name, int $sets, int $reps )
+    public function __construct($id, String $name, Int $sets, Int $reps)
     {
         $this->id = $id;
         $this->name = $name;

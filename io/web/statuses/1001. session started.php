@@ -2,7 +2,6 @@
 
 use function compact as with;
 
-Status::matching(1001, function(session $session) {
-    $person = App::make(person::class);
+Status::matching(1001, function(Session $session) {
     return Redirect::to('/session/' . $session->id);
 });

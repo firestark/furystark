@@ -1,5 +1,5 @@
 <?php
 
-App::share(person::class, function($app) {
-    return new person($app['credentials']->name ?? 'Aron');
+App::share(Person::class, function($app) {
+    return new Person($app['credentials']->username);
 });

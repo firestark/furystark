@@ -1,16 +1,16 @@
 <?php
 
-class FlatfileSessionManager implements session\manager
+class FlatfileSessionManager implements Session\Manager
 {
     private $sessions, $file;
 
-    public function __construct(string $file, array $sessions)
+    public function __construct(String $file, Array $sessions)
     {
         $this->file = $file;
         $this->sessions = $sessions;
     }
 
-    public function add(session $session)
+    public function add(Session $session)
     {
         if ( $this->has($session->id))
             return;
@@ -19,17 +19,17 @@ class FlatfileSessionManager implements session\manager
         $this->write();
     }
 
-    public function has($id): bool
+    public function has($id): Bool
     {
         return isset($this->sessions[$id]);
     }
 
-    public function find($id): session
+    public function find($id): Session
     {
         return $this->sessions[$id];
     }
 
-    public function findBelongingTo(scheme $scheme): array
+    public function findBelongingTo(scheme $scheme): Array
     {
         foreach ($this->sessions as $session)
             if ($session->scheme === $scheme->id)
@@ -38,7 +38,7 @@ class FlatfileSessionManager implements session\manager
         return $sessions ?? [];
     }
 
-    public function update(session $session)
+    public function update(Session $session)
     {
         if (! $this->has($session->id))
             throw new exception("A session with id: {$session->id} does not exist.");
@@ -47,7 +47,7 @@ class FlatfileSessionManager implements session\manager
         $this->write();
     }
 
-    public function remove(session $session)
+    public function remove(Session $session)
     {
         unset($this->sessions[$session->id]);
         $this->write();

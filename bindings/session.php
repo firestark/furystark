@@ -1,15 +1,15 @@
 <?php
 
-App::bind(session::class, function($app, array $data) {
-    if (isset($data['id']) && $app[session\manager::class]->has($data['id']))
-        return $app[session\manager::class]->find($data['id']);
+App::bind(Session::class, function($app, array $data) {
+    if (isset($data['id']) && $app[Session\Manager::class]->has($data['id']))
+        return $app[Session\Manager::class]->find($data['id']);
 
-    if ($app[session\manager::class]->has(Input::get('id')))
-        return $app[session\manager::class]->find(Input::get('id'));
+    if ($app[Session\Manager::class]->has(Input::get('id')))
+        return $app[Session\Manager::class]->find(Input::get('id'));
 
-    return new session (
+    return new Session (
         uniqid(), 
-        $app[scheme::class], 
+        $app[Scheme::class], 
         [] 
     );
-} );
+});

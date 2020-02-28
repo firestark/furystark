@@ -1,5 +1,6 @@
 <?php
 
+
 use Firestark\Http\Router;
 use Jenssegers\Blade\Blade;
 use Psr\Http\Message\ResponseInterface;
@@ -8,7 +9,6 @@ use Relay\Relay;
 
 require __DIR__ . '/../../vendor/autoload.php';
 require __DIR__ . '/../../tools/helpers.php';
-
 
 $app = new Firestark\App;
 $app->instance('app', $app);

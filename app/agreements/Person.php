@@ -1,10 +1,10 @@
 <?php
 
-class person
+class Person
 {
     public $name;
 
-    function __construct ( string $name )
+    public function __construct(String $name)
     {
         $this->name = $name;
     }

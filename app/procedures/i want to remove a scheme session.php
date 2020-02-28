@@ -1,9 +1,8 @@
 <?php
 
-when ( 'i want to remove a scheme session', then ( apply ( a ( 
+when('i want to remove a scheme session', then(apply(a(
     
-function ( session $session, session\manager $manager )
-{
-    $manager->remove ( $session );
-    return [ 1005, [ ] ];
-} ) ) ) );
+function (Session $session, Session\Manager $manager) {
+    $manager->remove($session);
+    return [1005, []];
+}))));

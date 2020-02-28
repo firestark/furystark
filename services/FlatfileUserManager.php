@@ -8,7 +8,7 @@ class FlatfileUserManager implements UserManager
     private $users = [];
     private $file = '';
 
-    function __construct(string $file, array $users)
+    function __construct(string $file, Array $users)
     {
         $this->file = $file;
         $this->users = $users;
@@ -20,7 +20,7 @@ class FlatfileUserManager implements UserManager
         $this->write();
     }
 
-    function has(Credentials $credentials): bool
+    function has(Credentials $credentials): Bool
     {
         return (
             isset($this->users[$credentials->username]) && 
@@ -28,7 +28,7 @@ class FlatfileUserManager implements UserManager
         );
     }
 
-    function registered(string $username): bool
+    function registered(string $username): Bool
     {
         return isset($this->users[$username]);
     }

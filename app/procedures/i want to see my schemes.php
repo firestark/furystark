@@ -2,10 +2,9 @@
 
 use function compact as with;
 
-when ( 'i want to see my schemes', then ( apply ( a ( 
+when('i want to see my schemes', then(apply(a(
     
-function ( scheme\manager $manager, person $person )
-{
-    $schemes = $manager->all ( $person );
-    return [ 1000, with ( 'schemes' ) ];
-} ) ) ) );
+function (Scheme\Manager $manager, Person $person) {
+    $schemes = $manager->all($person);
+    return [1000, with('schemes')];
+}))));

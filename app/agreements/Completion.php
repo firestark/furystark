@@ -1,11 +1,10 @@
 <?php
 
-
-class completion
+class Completion
 {
     public $exercise, $set, $kg;
 
-    function __construct ( $exercise, int $set, float $kg )
+    public function __construct($exercise, Int $set, Float $kg)
     {
         $this->exercise = $exercise;
         $this->set = $set;

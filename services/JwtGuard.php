@@ -10,23 +10,23 @@ class JwtGuard extends Guard
     const key = 'eye-fire';
     private $token = '';
 
-    public function __construct(string $token = '')
+    public function __construct(String $token = '')
     {
         $this->token = $token;
     }
 
-    public function stamp(Credentials $credentials): string
+    public function stamp(Credentials $credentials): String
     {
         $this->token = JWT::encode(['credentials' => serialize ( $credentials )], self::key);
         return $this->token;
     }
 
-    public function stamped(): bool
+    public function stamped(): Bool
     {
         return ($this->token !== '');
     }
 
-    public function authenticate(string $token): bool
+    public function authenticate(string $token): Bool
     {
         try {
             JWT::decode($token, self::key, array('HS256'));
@@ -41,18 +41,18 @@ class JwtGuard extends Guard
         $this->token = '';
     }
 
-    public function getToken(): string
+    public function getToken(): String
     {
         return $this->token;
     }
 
-    public function current(): credentials
+    public function current(): Credentials
     {
         try {
             return unserialize(JWT::decode($this->token, self::key, array ('HS256'))->credentials);
         }
         catch(exception $e) {
-            return new credentials('', '');
+            return new Credentials('', '');
         }
     }
 }
