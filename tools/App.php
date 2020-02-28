@@ -7,9 +7,9 @@ use Illuminate\Container\Container;
 
 class App extends Container
 {
-    public function fulfill(string $feature)
+    public function fulfill(string $feature, array $payload = [])
     {
-        list($status, $payload) = $this->make($feature);
+        list($status, $payload) = $this->make($feature, $payload);
         $task = $this['status']->match($status);
         return call_user_func_array($task, $payload);
     }
