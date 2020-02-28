@@ -1,5 +1,5 @@
 <?php
 
-App::share(person::class, function() {
-    return new person(Sess::get('person', 'Aron'));
+App::share(person::class, function($app) {
+    return new person($app['credentials']->name ?? 'Aron');
 });
