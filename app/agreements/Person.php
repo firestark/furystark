@@ -8,4 +8,14 @@ class Person
     {
         $this->name = $name;
     }
+
+    public function name()
+    {
+        return ucfirst($this->name);
+    }
+
+    public function initials()
+    {
+        return ucfirst($this->name[0]);
+    }
 }
