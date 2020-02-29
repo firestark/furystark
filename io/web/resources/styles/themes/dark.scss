@@ -42,11 +42,6 @@
         }    
     }
 
-    .mdc-list--linked.mdc-list--avatar-list a:nth-child(2) {
-        border-bottom: 1px solid #181617;
-        box-sizing: border-box;
-    }
-
     .mdc-drawer {
         @include mdc-drawer-fill-color-accessible(#181617);
     }

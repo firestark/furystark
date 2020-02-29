@@ -28,11 +28,6 @@
     --mdc-theme-text-disabled-on-dark: rgba(255, 255, 255, 0.5);
     --mdc-theme-text-icon-on-dark: rgba(255, 255, 255, 0.5);
 
-    .mdc-list--linked.mdc-list--avatar-list a:nth-child(2) {
-        border-bottom: 1px solid #dbe1e7;
-        box-sizing: border-box;
-    }
-
     .mdc-drawer {
         @include mdc-drawer-surface-fill-color(#fff);
     }
