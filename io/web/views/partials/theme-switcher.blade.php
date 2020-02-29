@@ -1,4 +1,4 @@
-@if ( Sess::get ( 'theme' ) === 'dark' )
+@if (Sess::get('theme') === 'dark')
     <a href="/theme/light" class="mdc-button" style="color: white;">
         <svg class="mdc-button__icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="margin-bottom: 8px; width: 24px; height: 24px;">
             <path fill="none" d="M0 0h24v24H0z"/>

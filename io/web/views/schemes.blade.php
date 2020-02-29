@@ -1,12 +1,12 @@
-@extends ( 'page.main' )
+@extends('page.main')
 
-@section ( 'title' )
+@section('title')
     My schemes
 @endsection
 
-@section ( 'page' )
+@section('page')
     <ul class="mdc-list linked">
-        @foreach ( $schemes as $scheme )
+        @foreach ($schemes as $scheme)
             <li class="mdc-list-item">
                 <span 
                     class="mdc-list-item__graphic" 

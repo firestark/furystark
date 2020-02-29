@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en-GB" data-theme="{{ Sess::get ( 'theme', 'light' ) }}">
+<html lang="en-GB" data-theme="{{ Sess::get('theme', 'light') }}">
 
 <head>
     <meta charset="utf-8">
@@ -11,15 +11,15 @@
 </head>
 
 <body class="mdc-typography">
-    @yield ( 'content' )
+    @yield('content')
 
-    @if ( Sess::has ( 'message' ) )
+    @if (Sess::has('message'))
         <div class="mdc-snackbar mdc-snackbar--leading">
             <div class="mdc-snackbar__surface">
                 <div class="mdc-snackbar__label"
                     role="status"
                     aria-live="polite">
-                    {{ Sess::get ( 'message' ) }}
+                    {{ Sess::get('message') }}
                 </div>
             </div>
         </div>
@@ -27,12 +27,12 @@
 
     <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
     <script>        
-        @if ( Sess::has ( 'message' ) )
-            const snackbar = mdc.snackbar.MDCSnackbar.attachTo ( document.querySelector ( '.mdc-snackbar' ) );
-            snackbar.open ( );
+        @if (Sess::has('message'))
+            const snackbar = mdc.snackbar.MDCSnackbar.attachTo(document.querySelector('.mdc-snackbar'));
+            snackbar.open();
         @endif
     </script>
-    @yield ( 'js' )
+    @yield('js')
 </body>
 
 </html>

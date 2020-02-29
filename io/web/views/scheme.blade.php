@@ -1,16 +1,16 @@
-@extends ( 'page.main' )
+@extends('page.main')
 
-@section ( 'navigation' )
-    @include ( 'partials.up-arrow', [ 'link' => '/' ] )
+@section('navigation')
+    @include('partials.up-arrow', ['link' => '/'])
 @endsection
 
-@section ( 'title' )
+@section('title')
     {{ $scheme->name }}
 @endsection
 
-@section ( 'page' )
+@section('page')
     <ul class="mdc-list linked">
-        @foreach ( $sessions as $key => $session )
+        @foreach ($sessions as $key => $session)
             <li class="mdc-list-item">                
                 <span class="mdc-list-item__text">
                     <a href="/session/{{ $session->id }}">Session {{ $key + 1 }}</a>
@@ -26,5 +26,5 @@
         @endforeach
     </ul>
 
-    @include ( 'partials.link.fab', [ 'link' => "/{$scheme->id}/start", 'action' => 'add' ] )
+    @include('partials.link.fab', ['link' => "/{$scheme->id}/start", 'action' => 'add'])
 @endsection

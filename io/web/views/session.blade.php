@@ -1,14 +1,14 @@
-@extends ( 'page.main' )
+@extends('page.main')
 
-@section ( 'navigation' )
-    @include ( 'partials.up-arrow', [ 'link' => '/' ] )
+@section('navigation')
+    @include('partials.up-arrow', ['link' => '/'])
 @endsection
 
-@section ( 'title' )
+@section('title')
     {{ $scheme->name }} session
 @endsection
 
-@section ( 'page' )
+@section('page')
     <form action="/session/{{ $session->id }}" method="POST" style="display: grid;">
         <div class="mdc-data-table">
             <table class="mdc-data-table__table" aria-label="Dessert calories">
@@ -22,11 +22,11 @@
                     </tr>
                 </thead>
                 <tbody class="mdc-data-table__content">
-                    @foreach ( $scheme->exercises as $exercise )
+                    @foreach ($scheme->exercises as $exercise)
                         <tr class="mdc-data-table__row">
                             <td class="mdc-data-table__cell">{{ $exercise->name }} ({{ $exercise->sets }}x{{ $exercise->reps }})</td>
 
-                            @for ( $i = 1; $i <= $exercise->sets; $i++ )
+                            @for ($i = 1; $i <= $exercise->sets; $i++)
                                 <td class="mdc-data-table__cell mdc-data-table__cell--numeric">
                                     <input
                                         step="0.5"
@@ -36,7 +36,7 @@
                                         value="{{ $session->getCompletion ( $exercise->id, $i ) ?? '0' }}">
                                 </td>
                             @endfor
-                            @if ( $exercise->sets === 3 )
+                            @if ($exercise->sets === 3)
                                 <td class="mdc-data-table__cell mdc-data-table__cell--numeric disabled">
                                     n/a
                                 </td>
@@ -47,15 +47,15 @@
             </table>
         </div>
 
-        @include ( 'partials.form.fab', [ 'action' => 'save' ] )
+        @include('partials.form.fab', ['action' => 'save'])
     </form>
 @endsection
 
 
-@section ( 'js' )
+@section('js')
     @parent
     
     <script>
-        mdc.dataTable.MDCDataTable.attachTo ( document.querySelector ( '.mdc-data-table' ) );
+        mdc.dataTable.MDCDataTable.attachTo(document.querySelector('.mdc-data-table'));
     </script>    
 @endsection

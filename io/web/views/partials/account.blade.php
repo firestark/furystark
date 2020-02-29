@@ -1,6 +1,6 @@
 <div class="mdc-menu-surface--anchor" style="position: relative; right: 16px;">
     <button id="accountButton" class="mdc-icon-button mdc-top-app-bar__action-item">
-        @include ( 'partials.avatar' )
+        @include('partials.avatar')
     </button>
 
     <div class="mdc-menu mdc-menu-surface" id="avatar-menu">
@@ -14,9 +14,9 @@
     </div>
 </div>
 
-@section ( 'js' )
+@section('js')
     <script>
-        const menu = mdc.menu.MDCMenu.attachTo ( document.querySelector ( '.mdc-menu' ) );
-        accountButton.onclick = function ( ) { menu.open = ! menu.open; }
+        const menu = mdc.menu.MDCMenu.attachTo(document.querySelector('.mdc-menu'));
+        accountButton.onclick = function() { menu.open = ! menu.open; }
     </script>
 @endsection
