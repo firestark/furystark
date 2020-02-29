@@ -32,4 +32,6 @@
             </li>
         @endforeach
     </ul>
+
+    @include('partials.link.fab', ['link' => "/schemes/create", 'action' => 'add'])
 @endsection
