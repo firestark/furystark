@@ -1,15 +1,10 @@
 @import "./themes/light.scss";
 @import "./themes/dark.scss";
 
-@import "@material/drawer/mdc-drawer";
-@import "@material/list/mdc-list";
-@import "@material/button/mdc-button";
-@import "@material/card/mdc-card";
-@import "@material/textfield/mdc-text-field";
-@import "@material/fab/mdc-fab";
-@import "@material/tab/mdc-tab";
-@import "@material/top-app-bar/mdc-top-app-bar";
-@import "@material/typography/mdc-typography";
+
+
+
+
 
 /* ---------------------------------------------------------
     Reset 
@@ -27,8 +22,6 @@ html, body {
     padding: 0;
     -webkit-font-smoothing: antialiased;
     -webkit-tap-highlight-color: transparent;
-    background-color: var(--mdc-theme-background, #fff);
-    color: var(--mdc-theme-text-primary-on-background, #000);
 }
 
 body {
@@ -59,37 +52,6 @@ input[type="date"]::-webkit-inner-spin-button {
     }
 }
 
-input:-webkit-autofill,
-input:-webkit-autofill:hover, 
-input:-webkit-autofill:focus, 
-input:-webkit-autofill:active  {
-    box-shadow:  0 0 0px 1000px var(--mdc-theme-background) inset !important;
-    -webkit-text-fill-color: var(--mdc-theme-text-primary-on-background) !important;
-    border-bottom-color: #0392FF !important;
-}
-
-.mdc-list-item__meta {
-    fill: var(--mdc-theme-text-hint-on-background, rgba(0, 0, 0, 0.38));
-}
-
-.mdc-list-item__graphic {
-    position: relative;
-}
-
-.mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__icon {
-    fill: var(--mdc-theme-text-secondary-on-background, rgba(0, 0, 0, 0.54));
-    color: var(--mdc-theme-text-secondary-on-background, rgba(0, 0, 0, 0.54));
-}
-
-.mdc-text-field--focused:not(.mdc-text-field--disabled) .mdc-floating-label {
-    fill: var(--mdc-theme-primary, #F44336);
-    color: var(--mdc-theme-primary, #F44336);
-}
-
-.mdc-checkbox__checkmark {
-    color: var(--mdc-theme-on-secondary);
-}
-
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -99,6 +61,33 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type=number] {
     -moz-appearance:textfield;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active  {
+    // box-shadow:  0 0 0px 1000px var(--mdc-theme-background) inset !important;
+    // -webkit-text-fill-color: var(--mdc-theme-text-primary-on-background) !important;
+    // border-bottom-color: #0392FF !important;
+}
+
+.mdc-list-item__meta {
+    // fill: var(--mdc-theme-text-hint-on-background, rgba(0, 0, 0, 0.38));
+}
+
+.mdc-list-item__graphic {
+    position: relative;
+}
+
+.mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__icon {
+    // fill: var(--mdc-theme-text-secondary-on-background, rgba(0, 0, 0, 0.54));
+    // color: var(--mdc-theme-text-secondary-on-background, rgba(0, 0, 0, 0.54));
+}
+
+.mdc-text-field--focused:not(.mdc-text-field--disabled) .mdc-floating-label {
+    // fill: var(--mdc-theme-primary, #F44336);
+    // color: var(--mdc-theme-primary, #F44336);
 }
 
 .mdc-list {
@@ -324,31 +313,6 @@ input[type=number] {
     } 
 }
 
-#logo {
-    height: 56px;
-    display: block;
-    margin: 0 auto;
-    position: relative;
-    top: 8px;
-}
-
-#app {
-    overflow: hidden;
-    height: 100vh;
-    box-sizing: border-box;
-    display: grid;
-    grid-template-columns: auto 1fr;
-    position: relative;
-    z-index: 1;
-}
-
-#page {
-    box-sizing: border-box;
-    min-height: 0;
-    display: grid;
-    grid-template-rows: auto 1fr;
-}
-
 main {
     overflow: auto;
     box-sizing: border-box;
@@ -362,16 +326,6 @@ main {
     bottom: 34px;
     right: 40px;
     z-index: 5000;
-}
-
-// Top app bar
-
-.mdc-top-app-bar {   
-    @include mdc-top-app-bar-icon-ink-color(#fff);
-    @include mdc-top-app-bar-ink-color(var(--mdc-theme-on-primary));      
-
-    position: relative;
-    background: var(--mdc-theme-primary);
 }
 
 /* 

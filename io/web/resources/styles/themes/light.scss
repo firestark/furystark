@@ -1,3 +1,29 @@
+@use "@material/theme" with(
+  $primary: #F44336,
+  $secondary: #fff,
+  $on-primary: #fff,
+  $on-secondary: #000,
+  $accent: #fff,
+  $background: #fafafa,
+  $surface: #fff,
+  $on-surface: #000,
+  $error: #b00020,
+  $on-error:  #fff
+);
+
+@use "@material/drawer/mdc-drawer";
+@use "@material/list/mdc-list";
+@use "@material/button/mdc-button";
+@use "@material/card/mdc-card";
+@use "@material/textfield/mdc-text-field";
+@use "@material/fab/mdc-fab";
+@use "@material/tab/mdc-tab";
+@use "@material/top-app-bar/mdc-top-app-bar";
+@use "@material/typography/mdc-typography";
+
+// The $mdc-theme-accent variable is DEPRECATED - it exists purely for backward compatibility.
+// The $mdc-theme-secondary* variables should be used for all new projects.
+
 @import "@material/drawer/mdc-drawer";
 @import "@material/tab/mdc-tab";
 @import "@material/top-app-bar/mdc-top-app-bar";
@@ -7,7 +33,7 @@
     --mdc-theme-secondary: #fff;
     --mdc-theme-background: #fafafa;
     --mdc-theme-surface: #fff;
-    --mdc-theme-error: #f44336;
+    --mdc-theme-error: #b00020;
     --mdc-theme-on-primary: #fff;
     --mdc-theme-on-secondary: #343434;
     --mdc-theme-on-surface: #000;
