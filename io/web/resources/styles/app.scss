@@ -49,6 +49,8 @@ body {
 
 a {
     text-decoration: none;
+    color: inherit;
+    fill: inherit;
 }
 
 input[type=number]::-webkit-inner-spin-button {
@@ -99,9 +101,8 @@ input[type=number] {
     display: inherit;
 }
 
-.mdc-list a:not(.mdc-list-item__meta) {
-    color: inherit;
-    fill: inherit;
+nav.mdc-list a {
+    font-weight: 500;
 }
 
 .mdc-list.linked .mdc-list-item__text,
