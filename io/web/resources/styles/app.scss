@@ -1,14 +1,33 @@
-@import "./themes/light.scss";
-@import "./themes/dark.scss";
-
-
-
-
-
-
 /* ---------------------------------------------------------
     Reset 
 --------------------------------------------------------- */
+
+:root {
+    --mdc-theme-primary: initial;
+    --mdc-theme-secondary: initial;
+    --mdc-theme-background: initial;
+    --mdc-theme-surface: initial;
+    --mdc-theme-error: initial;
+    --mdc-theme-on-primary: initial;
+    --mdc-theme-on-secondary: initial;
+    --mdc-theme-on-surface: initial;
+    --mdc-theme-on-error: initial;
+    --mdc-theme-text-primary-on-background: initial;
+    --mdc-theme-text-secondary-on-background: initial;
+    --mdc-theme-text-hint-on-background: initial;
+    --mdc-theme-text-disabled-on-background: initial;
+    --mdc-theme-text-icon-on-background: initial;
+    --mdc-theme-text-primary-on-light: initial;
+    --mdc-theme-text-secondary-on-light: initial;
+    --mdc-theme-text-hint-on-light: initial;
+    --mdc-theme-text-disabled-on-light: initial;
+    --mdc-theme-text-icon-on-light: initial;
+    --mdc-theme-text-primary-on-dark: initial;
+    --mdc-theme-text-secondary-on-dark: initial;
+    --mdc-theme-text-hint-on-dark: initial;
+    --mdc-theme-text-disabled-on-dark: initial;
+    --mdc-theme-text-icon-on-dark: initial;
+}
 
 *:focus {
     outline: none;
@@ -63,31 +82,12 @@ input[type=number] {
     -moz-appearance:textfield;
 }
 
-input:-webkit-autofill,
-input:-webkit-autofill:hover, 
-input:-webkit-autofill:focus, 
-input:-webkit-autofill:active  {
-    // box-shadow:  0 0 0px 1000px var(--mdc-theme-background) inset !important;
-    // -webkit-text-fill-color: var(--mdc-theme-text-primary-on-background) !important;
-    // border-bottom-color: #0392FF !important;
-}
-
 .mdc-list-item__meta {
-    // fill: var(--mdc-theme-text-hint-on-background, rgba(0, 0, 0, 0.38));
+    fill: currentColor;
 }
 
 .mdc-list-item__graphic {
     position: relative;
-}
-
-.mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__icon {
-    // fill: var(--mdc-theme-text-secondary-on-background, rgba(0, 0, 0, 0.54));
-    // color: var(--mdc-theme-text-secondary-on-background, rgba(0, 0, 0, 0.54));
-}
-
-.mdc-text-field--focused:not(.mdc-text-field--disabled) .mdc-floating-label {
-    // fill: var(--mdc-theme-primary, #F44336);
-    // color: var(--mdc-theme-primary, #F44336);
 }
 
 .mdc-list {
@@ -96,16 +96,12 @@ input:-webkit-autofill:active  {
 }
 
 .mdc-list a {
-    text-decoration: none;
-    color: var(--mdc-theme-on-surface, #000);
-    fill: var(--mdc-theme-on-surface, #000);
     display: inherit;
 }
 
-.mdc-list .mdc-list-item__graphic a,
-.mdc-list .mdc-list-item__meta {
-    color: var(--mdc-theme-text-icon-on-background, rgba(0,0,0,0.38));
-    fill: var(--mdc-theme-text-icon-on-background, rgba(0,0,0,0.38));
+.mdc-list a:not(.mdc-list-item__meta) {
+    color: inherit;
+    fill: inherit;
 }
 
 .mdc-list.linked .mdc-list-item__text,
@@ -147,7 +143,6 @@ input:-webkit-autofill:active  {
     border-right: 1px solid rgba(0,0,0,.12);
     position: sticky;
     left: 0;
-    background-color: var(--mdc-theme-surface, #fff);
     cursor: default;
 }
 

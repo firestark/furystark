@@ -1,7 +1,8 @@
 module.exports = [{
-  entry: ['./resources/styles/app.scss', './resources/app.js'],
+  mode: 'development',
+  entry: ['./resources/styles/themes/light.scss', './resources/styles/themes/dark.scss', './resources/app.js'],
   output: {
-    filename: './resources/bundle.js',
+    filename: 'resources/bundle.js',
   },
   module: {
     rules: [
@@ -11,7 +12,7 @@ module.exports = [{
           {
             loader: 'file-loader',
             options: {
-              name: 'resources/styles/bundle.css',
+              name: 'css/[name].css',
             },
           },
           { loader: 'extract-loader' },

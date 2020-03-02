@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en-GB" data-theme="{{ Sess::get('theme', 'light') }}">
+<html lang="en-GB">
 
 <head>
     <meta charset="utf-8">
@@ -7,10 +7,10 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
-    <link rel="stylesheet" href="/dist/resources/styles/bundle.css">
+    <link rel="stylesheet" href="/dist/css/{{ Sess::get('theme', 'light') }}.css">
 </head>
 
-<body class="mdc-typography">
+<body class="mdc-typography mdc-theme--background">
     @yield('content')
 
     @if (Sess::has('message'))
