@@ -2,7 +2,9 @@ module.exports = [{
   mode: 'development',
   entry: ['./resources/styles/themes/light.scss', './resources/styles/themes/dark.scss', './resources/app.js'],
   output: {
-    filename: 'resources/bundle.js',
+    filename: 'js/bundle.js',
+    libraryTarget: 'var',
+    library: '[name]'
   },
   module: {
     rules: [

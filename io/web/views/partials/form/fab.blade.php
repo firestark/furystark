@@ -8,11 +8,3 @@
         @endif
     </span>
 </button>
-
-@section('js')
-    @parent
-    
-    <script>
-        mdc.ripple.MDCRipple.attachTo(document.querySelector('.mdc-fab'));
-    </script>    
-@endsection

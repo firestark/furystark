@@ -18,19 +18,14 @@
                 <div class="mdc-snackbar__label"
                     role="status"
                     aria-live="polite">
-                    {{ Sess::get('message') }}
+                    {{ Sess::get('message', '') }}
                 </div>
             </div>
         </div>
     @endif
 
     <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
-    <script>        
-        @if (Sess::has('message'))
-            const snackbar = mdc.snackbar.MDCSnackbar.attachTo(document.querySelector('.mdc-snackbar'));
-            snackbar.open();
-        @endif
-    </script>
+    <script src="/dist/js/bundle.js"></script>
     @yield('js')
 </body>
 
