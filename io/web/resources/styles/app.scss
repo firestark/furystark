@@ -53,6 +53,10 @@ a {
     fill: inherit;
 }
 
+svg {
+    fill: currentColor;
+}
+
 input[type=number]::-webkit-inner-spin-button {
     -webkit-appearance: none;
 }
@@ -382,6 +386,10 @@ section#login {
 
     form {
         display: grid;
+
+        .mdc-text-field {
+            margin-bottom: 32px;
+        }
     }
 
     button[type='submit'] {
