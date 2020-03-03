@@ -6,7 +6,6 @@
     <title>Furystark</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
     <link rel="stylesheet" href="/dist/css/{{ Sess::get('theme', 'light') }}.css">
 </head>
 

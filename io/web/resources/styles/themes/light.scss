@@ -13,21 +13,11 @@ $on-background: #000;
     $on-error:  #fff
 );
 
-@use "@material/drawer/mdc-drawer";
-@use "@material/list/mdc-list";
-@use "@material/button/mdc-button";
-@use "@material/card/mdc-card";
-@use "@material/textfield/mdc-text-field";
-@use "@material/fab/mdc-fab";
-@use "@material/tab/mdc-tab";
-@use "@material/top-app-bar/mdc-top-app-bar";
-@use "@material/typography/mdc-typography";
 
-
+@import "../app.scss";
 @import "@material/drawer/mdc-drawer";
 @import "@material/tab/mdc-tab";
 @import "@material/top-app-bar/mdc-top-app-bar";
-@import "../app.scss";
 
 
 input:-webkit-autofill,

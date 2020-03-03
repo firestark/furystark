@@ -1,33 +1,21 @@
+@use "@material/drawer/mdc-drawer";
+@use "@material/list/mdc-list";
+@use "@material/button/mdc-button";
+@use "@material/card/mdc-card";
+@use "@material/textfield/mdc-text-field";
+@use "@material/fab/mdc-fab";
+@use "@material/tab/mdc-tab";
+@use "@material/top-app-bar/mdc-top-app-bar";
+@use "@material/typography/mdc-typography";
+@use "@material/menu-surface/mdc-menu-surface";
+@use "@material/menu/mdc-menu";
+@use "@material/icon-button/mdc-icon-button";
+@use "@material/elevation/mdc-elevation";
+@use "@material/data-table/mdc-data-table";
+
 /* ---------------------------------------------------------
     Reset 
 --------------------------------------------------------- */
-
-:root {
-    --mdc-theme-primary: initial;
-    --mdc-theme-secondary: initial;
-    --mdc-theme-background: initial;
-    --mdc-theme-surface: initial;
-    --mdc-theme-error: initial;
-    --mdc-theme-on-primary: initial;
-    --mdc-theme-on-secondary: initial;
-    --mdc-theme-on-surface: initial;
-    --mdc-theme-on-error: initial;
-    --mdc-theme-text-primary-on-background: initial;
-    --mdc-theme-text-secondary-on-background: initial;
-    --mdc-theme-text-hint-on-background: initial;
-    --mdc-theme-text-disabled-on-background: initial;
-    --mdc-theme-text-icon-on-background: initial;
-    --mdc-theme-text-primary-on-light: initial;
-    --mdc-theme-text-secondary-on-light: initial;
-    --mdc-theme-text-hint-on-light: initial;
-    --mdc-theme-text-disabled-on-light: initial;
-    --mdc-theme-text-icon-on-light: initial;
-    --mdc-theme-text-primary-on-dark: initial;
-    --mdc-theme-text-secondary-on-dark: initial;
-    --mdc-theme-text-hint-on-dark: initial;
-    --mdc-theme-text-disabled-on-dark: initial;
-    --mdc-theme-text-icon-on-dark: initial;
-}
 
 *:focus {
     outline: none;
