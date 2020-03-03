@@ -2,10 +2,13 @@
 
 class FlatfileSchemeManager implements Scheme\Manager
 {
+    private $file = '';
     private $schemes = [];
 
-    public function __construct(Array $schemes)
+    public function __construct(String $file, Array $schemes)
     {
+        $this->file = $file;
+
         foreach ($schemes as $scheme)
             $this->schemes[$scheme->id] = $scheme;
     }
@@ -23,5 +26,16 @@ class FlatfileSchemeManager implements Scheme\Manager
     public function find($id): Scheme
     {
         return $this->schemes[$id];
+    }
+
+    public function add(Scheme $scheme)
+    {
+        $this->schemes[$scheme->id] = $scheme;
+        $this->write();
+    }
+
+    private function write()
+	{
+		file_put_contents($this->file, serialize($this->schemes));
     }
 }

@@ -11,4 +11,6 @@ interface Manager
     public function has($id): Bool;
 
     public function find($id): Scheme;
+
+    public function add(Scheme $scheme);
 }

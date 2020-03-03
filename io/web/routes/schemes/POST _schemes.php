@@ -4,11 +4,12 @@ use function compact as with;
 
 Route::post('/schemes', function() {
     foreach (Input::get('exercise') as $data) {
-        if ( empty($data['name']) || empty($data['sets']) || empty($data['reps']))
+        if (empty($data['name']) || empty($data['sets']) || empty($data['reps']))
             break;
 
         $exercises[] = App::make(Exercise::class, $data);
     }
 
-    dd($exercises ?? []);
+    $scheme = App::make(Scheme::class, ['exercises' => $exercises ?? []]);
+    return App::fulfill('i want to add a scheme', with('scheme'));
 });

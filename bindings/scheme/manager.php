@@ -1,5 +1,7 @@
 <?php
 
 App::share(Scheme\Manager::class, function($app) {
-    return new FlatfileSchemeManager($app['schemes']);
+    $person = strtolower($app[Person::class]->name);
+    $file = __DIR__ . '/../../storage/databases/files/' . $person . '/schemes.data';
+    return new FlatfileSchemeManager($file, $app['schemes']);
 });
