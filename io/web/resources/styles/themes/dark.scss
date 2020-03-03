@@ -21,6 +21,11 @@ $on-background: #fff;
 @import "@material/tab/mdc-tab";
 @import "@material/top-app-bar/mdc-top-app-bar";
 
+html, body {
+    color: $on-background;
+}
+
+
 .mdc-theme--background {
     background-color: $background;
 }

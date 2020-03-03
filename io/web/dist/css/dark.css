@@ -6926,6 +6926,10 @@ section#login button[type=submit] {
     padding-top: 56px;
   }
 }
+html, body {
+  color: #fff;
+}
+
 .mdc-theme--background {
   background-color: #1D1D1D;
 }
