@@ -5496,7 +5496,9 @@ nav.mdc-list a {
 .mdc-data-table__table {
   border-collapse: separate;
   border-spacing: 0;
-  border-color: rgba(0, 0, 0, 0.12);
+}
+.mdc-data-table__table tr {
+  border-color: rgba(0, 0, 0, 0.12) !important;
 }
 
 .mdc-data-table__table th,
