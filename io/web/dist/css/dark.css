@@ -6926,15 +6926,6 @@ section#login button[type=submit] {
     padding-top: 56px;
   }
 }
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active {
-  box-shadow: 0 0 0px 1000px #1D1D1D inset !important;
-  -webkit-text-fill-color: #fff !important;
-  border-bottom-color: #0392FF !important;
-}
-
 .mdc-theme--background {
   background-color: #1D1D1D;
 }

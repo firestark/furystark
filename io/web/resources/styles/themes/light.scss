@@ -19,16 +19,6 @@ $on-background: #000;
 @import "@material/tab/mdc-tab";
 @import "@material/top-app-bar/mdc-top-app-bar";
 
-
-input:-webkit-autofill,
-input:-webkit-autofill:hover, 
-input:-webkit-autofill:focus, 
-input:-webkit-autofill:active  {
-    box-shadow:  0 0 0px 1000px $background inset !important;
-    -webkit-text-fill-color: $on-background !important;
-    border-bottom-color: #0392FF !important;
-}
-
 .mdc-theme--background {
     background-color: $background;
 }
