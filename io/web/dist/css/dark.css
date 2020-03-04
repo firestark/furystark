@@ -3469,9 +3469,9 @@ svg.mdc-button__icon {
   -webkit-appearance: none;
   overflow: visible;
   transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1), opacity 15ms linear 30ms, transform 270ms 0ms cubic-bezier(0, 0, 0.2, 1);
-  background-color: #fff;
+  background-color: #cddc39;
   /* @alternate */
-  background-color: var(--mdc-theme-secondary, #fff);
+  background-color: var(--mdc-theme-secondary, #cddc39);
   color: #343434;
   /* @alternate */
   color: var(--mdc-theme-on-secondary, #343434);
@@ -5721,8 +5721,8 @@ input[type=number] {
   display: inherit;
 }
 
-nav.mdc-list a {
-  font-weight: 500;
+.mdc-drawer nav.mdc-list a {
+  font-weight: 600;
 }
 
 .mdc-list.linked .mdc-list-item__text,
