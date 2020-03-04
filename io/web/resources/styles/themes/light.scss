@@ -15,9 +15,6 @@ $on-background: #000;
 
 
 @import "../app.scss";
-@import "@material/drawer/mdc-drawer";
-@import "@material/tab/mdc-tab";
-@import "@material/top-app-bar/mdc-top-app-bar";
 
 .mdc-theme--background {
     background-color: $background;

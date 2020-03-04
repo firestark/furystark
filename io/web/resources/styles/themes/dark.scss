@@ -17,9 +17,6 @@ $on-background: #fff;
 );
 
 @import "../app.scss";
-@import "@material/drawer/mdc-drawer";
-@import "@material/tab/mdc-tab";
-@import "@material/top-app-bar/mdc-top-app-bar";
 
 html, body {
     color: $on-background;

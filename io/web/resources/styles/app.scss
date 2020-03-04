@@ -4,7 +4,6 @@
 @use "@material/card/mdc-card";
 @use "@material/textfield/mdc-text-field";
 @use "@material/fab/mdc-fab";
-@use "@material/tab/mdc-tab";
 @use "@material/top-app-bar/mdc-top-app-bar";
 @use "@material/typography/mdc-typography";
 @use "@material/menu-surface/mdc-menu-surface";
@@ -13,6 +12,10 @@
 @use "@material/elevation/mdc-elevation";
 @use "@material/data-table/mdc-data-table";
 @use "@material/snackbar/mdc-snackbar";
+@use "@material/tab-bar/mdc-tab-bar";
+@use "@material/tab-scroller/mdc-tab-scroller";
+@use "@material/tab-indicator/mdc-tab-indicator";
+@use "@material/tab/mdc-tab";
 
 /* ---------------------------------------------------------
     Reset 
@@ -83,11 +86,6 @@ input[type=number] {
 
 .mdc-list-item__graphic {
     position: relative;
-}
-
-.mdc-list {
-    max-width: 1200px;
-    margin: 0 auto;
 }
 
 .mdc-list a {
@@ -311,6 +309,8 @@ main {
     width: 100%;
     z-index: 2;
     padding-top: 16px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .mdc-fab {
