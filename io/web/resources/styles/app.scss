@@ -390,3 +390,7 @@ section#login {
         margin-right: 8px;
     }
 }
+
+.mdc-text-field__input:-webkit-autofill + .mdc-floating-label {
+    transform: translateY(-106%) scale(0.75);
+}
