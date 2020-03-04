@@ -13,4 +13,6 @@ interface Manager
     public function find($id): Scheme;
 
     public function add(Scheme $scheme);
+
+    public function remove(Scheme $scheme);
 }
