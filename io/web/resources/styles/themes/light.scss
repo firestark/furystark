@@ -1,7 +1,8 @@
+$on-primary: #fff;
 $background: #fafafa;
+$on-background: #000;
 $surface: #fff;
 $on-surface: #000;
-$on-background: #000;
 
 @use "@material/theme" with(
     $primary: #F44336,

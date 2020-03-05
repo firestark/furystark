@@ -394,3 +394,24 @@ section#login {
 .mdc-text-field__input:-webkit-autofill + .mdc-floating-label {
     transform: translateY(-106%) scale(0.75);
 }
+
+.mdc-tab-bar {
+    // @include text-label-color($color);
+    // @include icon-color($color);
+    // @include ink-color(#fff);
+    // @include active-text-label-color($color);
+    // @include active-icon-color($color);
+    // @include active-states-color(#fff);
+}
+
+.mdc-top-app-bar__tab-row {
+    align-items: flex-end;
+}
+
+.mdc-tab .mdc-tab__text-label {
+    color: $on-primary;
+}
+
+.mdc-tab-indicator .mdc-tab-indicator__content--underline {
+    border-color: $on-primary;
+}

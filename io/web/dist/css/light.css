@@ -6193,6 +6193,18 @@ section#login button[type=submit] {
   transform: translateY(-106%) scale(0.75);
 }
 
+.mdc-top-app-bar__tab-row {
+  align-items: flex-end;
+}
+
+.mdc-tab .mdc-tab__text-label {
+  color: #fff;
+}
+
+.mdc-tab-indicator .mdc-tab-indicator__content--underline {
+  border-color: #fff;
+}
+
 .mdc-theme--background {
   background-color: #fafafa;
 }

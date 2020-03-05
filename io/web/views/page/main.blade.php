@@ -42,6 +42,11 @@
                         @include('partials.account')
                     </section>
                 </div>
+                @if (View::hasSection('tabs'))
+                    <div class="mdc-top-app-bar__row mdc-top-app-bar__tab-row">
+                        @yield('tabs')
+                    </div>
+                @endif
             </header>
 
             <main>

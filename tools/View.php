@@ -21,4 +21,9 @@ class View
         $view = $this->view->make($template, $data);
         return $this->response->ok((string) $view);
     }
+
+    public function __call($method, $args)
+    {
+        return call_user_func_array([$this->view, $method], $args);
+    }
 }
