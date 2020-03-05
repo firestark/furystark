@@ -23,7 +23,7 @@ class Redirect implements Middleware
         $previousUri = $this->app['sess']->get('previous-uri', '/');
         $this->app->instance('redirector', new Redirector($previousUri));
         $response = $handler->handle($request);
-        $this->app['sess']->flash('previous-uri', $this->app['request']->getUri()->getPath() . '?' . $request->getUri()->getQuery());
+        $this->app['sess']->set('previous-uri', $this->app['request']->getUri()->getPath() . '?' . $request->getUri()->getQuery());
         return $response;
     }
 }
