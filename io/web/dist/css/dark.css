@@ -6117,9 +6117,9 @@ main {
   box-sizing: border-box;
   width: 100%;
   z-index: 2;
-  padding-top: 16px;
   max-width: 1200px;
   margin: 0 auto;
+  padding-top: 24px;
 }
 
 .mdc-fab {
@@ -6134,6 +6134,10 @@ main {
   ##Screen = B/w 481px to 767px
 */
 @media (min-width: 481px) and (max-width: 767px) {
+  main {
+    padding-top: 0;
+  }
+
   .mdc-snackbar {
     bottom: 138px;
     left: 0;
@@ -6153,6 +6157,10 @@ main {
   ##Screen = B/w 320px to 479px
 */
 @media (min-width: 320px) and (max-width: 480px) {
+  main {
+    padding-top: 0;
+  }
+
   .mdc-snackbar {
     bottom: 138px;
     left: 0;
@@ -6199,6 +6207,16 @@ section#login button[type=submit] {
 
 .mdc-tab .mdc-tab__text-label {
   color: #fff;
+  opacity: 0.87;
+}
+
+.mdc-tab.mdc-tab--active .mdc-tab__text-label {
+  color: #fff;
+  opacity: 1;
+}
+
+.mdc-tab .mdc-tab__text-label {
+  opacity: 0.87;
 }
 
 .mdc-tab-indicator .mdc-tab-indicator__content--underline {

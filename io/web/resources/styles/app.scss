@@ -308,9 +308,9 @@ main {
     box-sizing: border-box;
     width: 100%;
     z-index: 2;
-    padding-top: 16px;
     max-width: 1200px;
     margin: 0 auto;
+    padding-top: 24px;
 }
 
 .mdc-fab {
@@ -326,6 +326,11 @@ main {
 */
 
 @media (min-width: 481px) and (max-width: 767px) {
+
+    main {
+        padding-top: 0;
+    }
+    
 
     .mdc-snackbar {
         bottom: 138px;
@@ -348,6 +353,10 @@ main {
   */
   
 @media (min-width: 320px) and (max-width: 480px) {
+
+    main {
+        padding-top: 0;
+    }
 
     .mdc-snackbar {
         bottom: 138px;
@@ -395,22 +404,24 @@ section#login {
     transform: translateY(-106%) scale(0.75);
 }
 
-.mdc-tab-bar {
-    // @include text-label-color($color);
-    // @include icon-color($color);
-    // @include ink-color(#fff);
-    // @include active-text-label-color($color);
-    // @include active-icon-color($color);
-    // @include active-states-color(#fff);
-}
-
 .mdc-top-app-bar__tab-row {
     align-items: flex-end;
 }
 
 .mdc-tab .mdc-tab__text-label {
     color: $on-primary;
+    opacity: .87;
 }
+
+.mdc-tab.mdc-tab--active .mdc-tab__text-label {
+    color: $on-primary;
+    opacity: 1;
+}
+
+.mdc-tab .mdc-tab__text-label {
+    opacity: .87;
+}
+
 
 .mdc-tab-indicator .mdc-tab-indicator__content--underline {
     border-color: $on-primary;
