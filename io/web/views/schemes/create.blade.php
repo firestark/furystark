@@ -46,5 +46,4 @@
 
         @include('partials.form.fab', ['action' => 'save'])
     </form>
-    
 @endsection
