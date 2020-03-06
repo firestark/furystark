@@ -38,7 +38,9 @@
                     </section>
                     <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end">                
                         
-                        @include('partials.theme-switcher')
+                        <span style="color: white;">
+                            @include('partials.theme-switcher')
+                        </span>
                         @include('partials.account')
                     </section>
                 </div>

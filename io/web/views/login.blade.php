@@ -10,8 +10,12 @@
 
 @section('content')
 
+    <span style="position: absolute; right: 16px; top: 16px;">
+        @include('partials.theme-switcher')
+    </span>
+
     <main style="display: grid; height: 100vh;">
-        <section id="login">
+        <section id="login" class="mdc-card">
             <form action="{{ request::getUri()->getPath() }}" method="POST">
                 
                 <label class="mdc-text-field mdc-text-field--with-leading-icon" id="username-input">
