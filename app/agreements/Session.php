@@ -21,4 +21,9 @@ class Session
     {
         return $this->completions[$exercise][$set -1] ?? null;
     }
+
+    public function remove(Exercise $exercise)
+    {
+        unset($this->completions[$exercise->id]);
+    }
 }
