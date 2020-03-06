@@ -9,7 +9,7 @@
 @endsection
 
 @section('page')
-    <form action="/schemes" method="POST" style="padding: 16px;">
+    <form action="/schemes" method="POST" class="mdc-card" style="position: static; display: block; padding: 16px;">
         <label class="mdc-text-field" id="title-input">
             <div class="mdc-text-field__ripple"></div>
             <input name="title" class="mdc-text-field__input" type="text">
