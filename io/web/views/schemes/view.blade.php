@@ -59,5 +59,5 @@
         </div>
     @endif
     
-    @include('partials.link.fab', ['link' => "/{$scheme->id}/start", 'action' => 'add'])
+    @include('partials.link.fab', ['link' => "/schemes/{$scheme->id}/start", 'action' => 'add'])
 @endsection
