@@ -1,4 +1,5 @@
 <a href="{{ $link }}" class="mdc-fab">
+    <div class="mdc-fab__ripple"></div>
     <span class="mdc-fab__icon">
         @if ($action === 'add')
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">

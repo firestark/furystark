@@ -1,4 +1,5 @@
 <button type="submit" class="mdc-fab">
+    <div class="mdc-fab__ripple"></div>
     <span class="mdc-fab__icon">
         @if ($action === 'save')
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
