@@ -24,5 +24,6 @@ class Scheme
                 unset($this->exercises[$key]);
                 break;
             }
+        $this->exercises = array_values($this->exercises);
     }
 }
