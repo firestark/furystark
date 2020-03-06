@@ -41,10 +41,12 @@ abstract class Guard
      */
     public function allows(Request $request, string $token = ''): bool
     {
-        
+        if ($this->authenticate($token))
+            return true;
+
         if (in_array($request->getUri()->getPath(), $this->public[$request->getMethod()]))
             return true;
         
-        return $this->authenticate($token);
+        return false;
     }
 }
