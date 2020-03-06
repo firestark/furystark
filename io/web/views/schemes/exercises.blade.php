@@ -38,29 +38,31 @@
 @endsection
 
 @section('page')
-    <div class="mdc-card">
-        <ul class="mdc-list mdc-list--two-line">
-            @foreach ($scheme->exercises as $key => $exercise)
-                <li class="mdc-list-item" tabindex="0">
-                    <span class="mdc-list-item__graphic" style="background-color: rgba(0,0,0,.3); color: #fff; border-radius: 50%; width: 40px; height: 40px;">
-                        {{ $key + 1 }}
-                    </span>
-                    <span class="mdc-list-item__text" style="width: 100%;">
-                        <a href="#">
-                            <span style="width: 100%;" class="mdc-list-item__primary-text">{{ $exercise->name }}</span>
-                            <span style="width: 100%;" class="mdc-list-item__secondary-text">{{ $exercise->sets }}x{{ $exercise->reps }}</span>
+    @if (count($scheme->exercises))
+        <div class="mdc-card">
+            <ul class="mdc-list mdc-list--two-line">
+                @foreach ($scheme->exercises as $key => $exercise)
+                    <li class="mdc-list-item" tabindex="0">
+                        <span class="mdc-list-item__graphic" style="background-color: rgba(0,0,0,.3); color: #fff; border-radius: 50%; width: 40px; height: 40px;">
+                            {{ $key + 1 }}
+                        </span>
+                        <span class="mdc-list-item__text" style="width: 100%;">
+                            <a href="#">
+                                <span style="width: 100%;" class="mdc-list-item__primary-text">{{ $exercise->name }}</span>
+                                <span style="width: 100%;" class="mdc-list-item__secondary-text">{{ $exercise->sets }}x{{ $exercise->reps }}</span>
+                            </a>
+                        </span>
+                        <a href="/schemes/{{ $scheme->id }}/remove/{{ $exercise->id }}" class="mdc-list-item__meta" aria-hidden="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+                                <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>
+                                <path d="M0 0h24v24H0z" fill="none"/>
+                            </svg>
                         </a>
-                    </span>
-                    <a href="/schemes/{{ $scheme->id }}/remove/{{ $exercise->id }}" class="mdc-list-item__meta" aria-hidden="true">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
-                            <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>
-                            <path d="M0 0h24v24H0z" fill="none"/>
-                        </svg>
-                    </a>
-                </li>
-            @endforeach
-        </ul>
-    </div>
+                    </li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 
     <button class="mdc-fab" id="dialog-fab">
         <div class="mdc-fab__ripple"></div>
