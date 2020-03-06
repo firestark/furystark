@@ -2,13 +2,14 @@
 
 class Session
 {
-    public $id, $scheme, $completions;
+    public $id, $scheme, $completions, $createdAt;
 
-    public function __construct($id, Scheme $scheme, Array $completions = [])
+    public function __construct($id, Scheme $scheme, Array $completions = [], DateTime $createdAt = null)
     {
         $this->id = $id;
         $this->scheme = $scheme->id;
         $this->completions = $completions;
+        $this->createdAt = $createdAt ?? new DateTime;
     }
 
     public function set(Completion $completion)

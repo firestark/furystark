@@ -40,13 +40,18 @@
 @section('page')
     @if (count($sessions))
         <div class="mdc-card">
-            <ul class="mdc-list linked">
+            <ul class="mdc-list mdc-list--two-line">
                 @foreach ($sessions as $key => $session)
-                    <li class="mdc-list-item">                
-                        <span class="mdc-list-item__text">
-                            <a href="/session/{{ $session->id }}">Session {{ $key + 1 }}</a>
+                    <li class="mdc-list-item" tabindex="0">
+                        <span class="mdc-list-item__graphic" style="background-color: rgba(0,0,0,.3); color: #fff; border-radius: 50%; width: 40px; height: 40px;">
+                            {{ $key + 1 }}
                         </span>
-
+                        <span class="mdc-list-item__text" style="width: 100%;">
+                            <a href="/session/{{ $session->id }}">
+                                <span style="width: 100%;" class="mdc-list-item__primary-text">Session {{ $key + 1 }}</span>
+                                <span style="width: 100%;" class="mdc-list-item__secondary-text">{{ $session->createdAt->format('l, d F Y') }}</span>
+                            </a>
+                        </span>
                         <a href="/session/{{ $session->id }}/remove" class="mdc-list-item__meta" aria-hidden="true">
                             <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
                                 <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>
@@ -58,6 +63,6 @@
             </ul>
         </div>
     @endif
-    
+
     @include('partials.link.fab', ['link' => "/schemes/{$scheme->id}/start", 'action' => 'add'])
 @endsection
