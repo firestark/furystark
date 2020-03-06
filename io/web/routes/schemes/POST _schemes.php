@@ -7,7 +7,7 @@ Route::post('/schemes', function() {
         if (empty($data['name']) || empty($data['sets']) || empty($data['reps']))
             break;
 
-        $exercises[] = App::make(Exercise::class, $data);
+        $exercises[] = App::make(Exercise::class, array_merge (['id' => uniqid()], $data));
     }
 
     $scheme = App::make(Scheme::class, ['exercises' => $exercises ?? []]);
