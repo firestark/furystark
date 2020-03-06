@@ -1,7 +1,7 @@
 @extends('page.main')
 
 @section('navigation')
-    @include('partials.up-arrow', ['link' => '/'])
+    @include('partials.up-arrow', ['link' => "/schemes/{$scheme->id}"])
 @endsection
 
 @section('title')
