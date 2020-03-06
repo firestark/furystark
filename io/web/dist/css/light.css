@@ -6197,10 +6197,6 @@ section#login button[type=submit] {
   margin-right: 8px;
 }
 
-#login-theme-switcher {
-  fill: #000;
-}
-
 .mdc-text-field__input:-webkit-autofill + .mdc-floating-label {
   transform: translateY(-106%) scale(0.75);
 }

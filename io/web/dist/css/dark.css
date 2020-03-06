@@ -6197,10 +6197,6 @@ section#login button[type=submit] {
   margin-right: 8px;
 }
 
-#login-theme-switcher {
-  fill: #fff;
-}
-
 .mdc-text-field__input:-webkit-autofill + .mdc-floating-label {
   transform: translateY(-106%) scale(0.75);
 }
@@ -6247,4 +6243,12 @@ html, body {
 
 .mdc-data-table tr:hover td:first-child {
   background-color: #211F20;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  box-shadow: 0 0 0 30px #211F20 inset !important;
+  -webkit-text-fill-color: white !important;
 }
