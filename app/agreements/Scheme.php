@@ -11,4 +11,9 @@ class Scheme
         $this->exercises = $exercises;
         $this->createdAt = $createdAt ?? new DateTime;
     }
+
+    public function add(Exercise $exercise)
+    {
+        $this->exercises[] = $exercise;
+    }
 }

@@ -14,5 +14,7 @@ interface Manager
 
     public function add(Scheme $scheme);
 
+    public function update(Scheme $scheme);
+
     public function remove(Scheme $scheme);
 }

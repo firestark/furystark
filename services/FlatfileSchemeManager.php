@@ -34,6 +34,12 @@ class FlatfileSchemeManager implements Scheme\Manager
         $this->write();
     }
 
+    public function update(Scheme $scheme)
+    {
+        $this->schemes[$scheme->id] = $scheme;
+        $this->write();
+    }
+
     public function remove(Scheme $scheme)
     {
         unset($this->schemes[$scheme->id]);

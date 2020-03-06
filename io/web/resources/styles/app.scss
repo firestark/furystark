@@ -16,6 +16,7 @@
 @use "@material/tab-scroller/mdc-tab-scroller";
 @use "@material/tab-indicator/mdc-tab-indicator";
 @use "@material/tab/mdc-tab";
+@use "@material/dialog/mdc-dialog";
 
 /* ---------------------------------------------------------
     Reset 
@@ -425,4 +426,9 @@ section#login {
 
 .mdc-tab-indicator .mdc-tab-indicator__content--underline {
     border-color: $on-primary;
+}
+
+.mdc-top-app-bar .mdc-button:not(:disabled) {
+    color: $on-primary;
+    fill: $on-primary;
 }
