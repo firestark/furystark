@@ -16,4 +16,13 @@ class Scheme
     {
         $this->exercises[] = $exercise;
     }
+
+    public function remove(Exercise $exercise)
+    {
+        foreach($this->exercises as $key => $stored)
+            if($stored->id === $exercise->id) {
+                unset($this->exercises[$key]);
+                break;
+            }
+    }
 }
