@@ -6,5 +6,5 @@ when('i want to start a new session', then(apply(a(
     
 function (Session\Manager $manager, Session $session) {
     $manager->add($session);
-    return [1001, with('session')];
+    return [3000, with('session')];
 }))));

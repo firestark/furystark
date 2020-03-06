@@ -8,5 +8,5 @@ function (Session\Manager $manager, Session $session, Completion $completion) {
     $session->set($completion);
     $manager->update($session);
 
-    return [1002, with('session')];
+    return [3001, with('session')];
 }))));

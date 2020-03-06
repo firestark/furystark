@@ -6,5 +6,5 @@ function(Scheme $scheme, Exercise $exercise, Scheme\Manager $manager) {
     $scheme->add($exercise);
     $manager->update($scheme);
 
-    return [1010, []];
+    return [1005, []];
 }))));

@@ -6,5 +6,5 @@ when('i want to see my scheme sessions', then(apply(a(
     
 function(Scheme $scheme, Session\Manager $manager) {
     $sessions = $manager->findBelongingTo($scheme);
-    return [1004, with('scheme', 'sessions')];
+    return [3002, with('scheme', 'sessions')];
 }))));

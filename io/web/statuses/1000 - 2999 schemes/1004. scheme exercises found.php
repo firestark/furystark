@@ -2,6 +2,6 @@
 
 use function compact as with;
 
-Status::matching(1009, function(Scheme $scheme) {
+Status::matching(1004, function(Scheme $scheme) {
     return View::make('schemes.exercises', with('scheme'));
 });
