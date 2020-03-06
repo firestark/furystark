@@ -9,6 +9,6 @@ App::bind(Scheme::class, function($app, Array $data = []) {
     return new Scheme (
         $id,
         $data['title'] ?? input::get('title', ''),
-        $data['exercises']
+        $data['exercises'] ?? []
     );
 });

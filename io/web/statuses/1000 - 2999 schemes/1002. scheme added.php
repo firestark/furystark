@@ -1,6 +1,6 @@
 <?php
 
-Status::matching(1002, function() {
+Status::matching(1002, function($id) {
     Sess::flash('message', 'Scheme added.');
-    return Redirect::to('/');
+    return Redirect::to('/schemes/' . $id . '/exercises');
 });
