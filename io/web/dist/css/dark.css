@@ -6226,6 +6226,11 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
+.mdc-list-item__text,
+.mdc-list-item__text a {
+  height: 100%;
+}
+
 .mdc-list-item__meta {
   fill: currentColor;
 }
