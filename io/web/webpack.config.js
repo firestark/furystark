@@ -4,7 +4,7 @@ module.exports = [{
   output: {
     filename: 'js/bundle.js',
     libraryTarget: 'var',
-    library: '[name]'
+    library: 'app'
   },
   module: {
     rules: [

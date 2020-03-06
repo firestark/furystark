@@ -64,7 +64,7 @@
         </div>
     @endif
 
-    <button class="mdc-fab" id="dialog-fab">
+    <button class="mdc-fab" id="add-exercise-fab">
         <div class="mdc-fab__ripple"></div>
         <span class="mdc-fab__icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -123,4 +123,16 @@
         </div>
         <div class="mdc-dialog__scrim"></div>
     </div>
+@endsection
+
+@section('js')
+    @parent
+
+    <script>
+        const addExerciseFab = document.getElementById('add-exercise-fab');
+
+        addExerciseFab.onclick = () => {
+            app.dialog.open(document.querySelector('.mdc-dialog'));
+        };
+    </script>
 @endsection

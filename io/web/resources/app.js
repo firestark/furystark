@@ -29,19 +29,15 @@ fabs.forEach((fab) => {
 });
 
 
-
 const tabBars = document.querySelectorAll('.mdc-tab-bar');
 tabBars.forEach((tab) => {
     new MDCTabBar(tab);
 });
 
-let dialogFab = document.getElementById('dialog-fab');
-let dialogElement = document.querySelector('.mdc-dialog');
 
-if (dialogElement && dialogFab) {
-    const dialog = new MDCDialog(dialogElement);
-
-    dialogFab.onclick = () => {
-        dialog.open();
-    };
-}
+export const dialog = {
+    openWith: (element, dialogElement) => {
+        const mdcDialog = new MDCDialog(dialogElement);
+        mdcDialog.open();
+    }
+};
