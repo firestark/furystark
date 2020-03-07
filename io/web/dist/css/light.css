@@ -6226,8 +6226,8 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
-.mdc-list-item__text,
-.mdc-list-item__text a {
+.mdc-list--two-line .mdc-list-item__text,
+.mdc-list--two-line .mdc-list-item__text a {
   height: 100%;
 }
 
