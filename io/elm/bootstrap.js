@@ -5068,6 +5068,12 @@ var _Parser_findSubString = F5(function(smallString, offset, row, col, bigString
 
 	return _Utils_Tuple3(newOffset, row, col);
 });
+var $author$project$Main$LinkClicked = function (a) {
+	return {$: 'LinkClicked', a: a};
+};
+var $author$project$Main$UrlChanged = function (a) {
+	return {$: 'UrlChanged', a: a};
+};
 var $elm$core$Basics$EQ = {$: 'EQ'};
 var $elm$core$Basics$GT = {$: 'GT'};
 var $elm$core$Basics$LT = {$: 'LT'};
@@ -10665,12 +10671,12 @@ var $elm$core$Basics$never = function (_v0) {
 		continue never;
 	}
 };
-var $elm$browser$Browser$document = _Browser_document;
-var $author$project$Main$Scheme = F2(
-	function (name, createdAt) {
-		return {createdAt: createdAt, name: name};
+var $elm$browser$Browser$application = _Browser_application;
+var $author$project$Main$Scheme = F3(
+	function (id, name, createdAt) {
+		return {createdAt: createdAt, id: id, name: name};
 	});
-var $author$project$Theme$Light = {$: 'Light'};
+var $author$project$Theme$Dark = {$: 'Dark'};
 var $mdgriffith$elm_ui$Internal$Model$Rgba = F4(
 	function (a, b, c, d) {
 		return {$: 'Rgba', a: a, b: b, c: c, d: d};
@@ -10683,15 +10689,15 @@ var $author$project$Material$Color$black = A3($mdgriffith$elm_ui$Element$rgb255,
 var $author$project$Material$Color$lime500 = A3($mdgriffith$elm_ui$Element$rgb255, 205, 220, 57);
 var $author$project$Material$Color$red500 = A3($mdgriffith$elm_ui$Element$rgb255, 244, 67, 54);
 var $author$project$Material$Color$white = A3($mdgriffith$elm_ui$Element$rgb255, 255, 255, 255);
-var $author$project$Theme$light = {
-	background: A3($mdgriffith$elm_ui$Element$rgb255, 229, 229, 229),
-	kind: $author$project$Theme$Light,
-	onBackground: $author$project$Material$Color$black,
+var $author$project$Theme$dark = {
+	background: A3($mdgriffith$elm_ui$Element$rgb255, 29, 29, 29),
+	kind: $author$project$Theme$Dark,
+	onBackground: $author$project$Material$Color$white,
 	onPrimary: $author$project$Material$Color$white,
 	onSecondary: $author$project$Material$Color$black,
 	primary: $author$project$Material$Color$red500,
 	secondary: $author$project$Material$Color$lime500,
-	surface: $author$project$Material$Color$white
+	surface: A3($mdgriffith$elm_ui$Element$rgb255, 66, 66, 66)
 };
 var $justinmimbs$date$Date$RD = function (a) {
 	return {$: 'RD', a: a};
@@ -10914,36 +10920,45 @@ var $author$project$Main$schemeDate = A2(
 	$justinmimbs$date$Date$fromPosix,
 	$elm$time$Time$utc,
 	$elm$time$Time$millisToPosix(1583681692 * 1000));
-var $author$project$Main$init = function (_v0) {
-	return _Utils_Tuple2(
-		{
+var $author$project$Main$defaults = F2(
+	function (key, url) {
+		return {
+			key: key,
 			schemes: _List_fromArray(
 				[
-					A2($author$project$Main$Scheme, 'Chest', $author$project$Main$schemeDate),
-					A2($author$project$Main$Scheme, 'Back', $author$project$Main$schemeDate),
-					A2($author$project$Main$Scheme, 'Legs', $author$project$Main$schemeDate),
-					A2($author$project$Main$Scheme, 'Shoulders', $author$project$Main$schemeDate)
+					A3($author$project$Main$Scheme, '1', 'Chest', $author$project$Main$schemeDate),
+					A3($author$project$Main$Scheme, '2', 'Back', $author$project$Main$schemeDate),
+					A3($author$project$Main$Scheme, '3', 'Legs', $author$project$Main$schemeDate),
+					A3($author$project$Main$Scheme, '4', 'Shoulders', $author$project$Main$schemeDate)
 				]),
-			theme: $author$project$Theme$light,
-			title: 'My schemes'
-		},
-		$elm$core$Platform$Cmd$none);
-};
+			theme: $author$project$Theme$dark,
+			title: 'My schemes',
+			url: url
+		};
+	});
+var $author$project$Main$init = F3(
+	function (_v0, url, key) {
+		return _Utils_Tuple2(
+			A2($author$project$Main$defaults, key, url),
+			$elm$core$Platform$Cmd$none);
+	});
 var $elm$core$Platform$Sub$batch = _Platform_batch;
 var $elm$core$Platform$Sub$none = $elm$core$Platform$Sub$batch(_List_Nil);
 var $author$project$Main$subscriptions = function (_v0) {
 	return $elm$core$Platform$Sub$none;
 };
-var $author$project$Theme$Dark = {$: 'Dark'};
-var $author$project$Theme$dark = {
-	background: A3($mdgriffith$elm_ui$Element$rgb255, 29, 29, 29),
-	kind: $author$project$Theme$Dark,
-	onBackground: $author$project$Material$Color$white,
+var $elm$browser$Browser$Navigation$load = _Browser_load;
+var $elm$browser$Browser$Navigation$pushUrl = _Browser_pushUrl;
+var $author$project$Theme$Light = {$: 'Light'};
+var $author$project$Theme$light = {
+	background: A3($mdgriffith$elm_ui$Element$rgb255, 229, 229, 229),
+	kind: $author$project$Theme$Light,
+	onBackground: $author$project$Material$Color$black,
 	onPrimary: $author$project$Material$Color$white,
 	onSecondary: $author$project$Material$Color$black,
 	primary: $author$project$Material$Color$red500,
 	secondary: $author$project$Material$Color$lime500,
-	surface: A3($mdgriffith$elm_ui$Element$rgb255, 66, 66, 66)
+	surface: $author$project$Material$Color$white
 };
 var $author$project$Theme$switch = function (kind) {
 	if (kind.$ === 'Light') {
@@ -10952,15 +10967,85 @@ var $author$project$Theme$switch = function (kind) {
 		return $author$project$Theme$light;
 	}
 };
+var $elm$url$Url$addPort = F2(
+	function (maybePort, starter) {
+		if (maybePort.$ === 'Nothing') {
+			return starter;
+		} else {
+			var port_ = maybePort.a;
+			return starter + (':' + $elm$core$String$fromInt(port_));
+		}
+	});
+var $elm$url$Url$addPrefixed = F3(
+	function (prefix, maybeSegment, starter) {
+		if (maybeSegment.$ === 'Nothing') {
+			return starter;
+		} else {
+			var segment = maybeSegment.a;
+			return _Utils_ap(
+				starter,
+				_Utils_ap(prefix, segment));
+		}
+	});
+var $elm$url$Url$toString = function (url) {
+	var http = function () {
+		var _v0 = url.protocol;
+		if (_v0.$ === 'Http') {
+			return 'http://';
+		} else {
+			return 'https://';
+		}
+	}();
+	return A3(
+		$elm$url$Url$addPrefixed,
+		'#',
+		url.fragment,
+		A3(
+			$elm$url$Url$addPrefixed,
+			'?',
+			url.query,
+			_Utils_ap(
+				A2(
+					$elm$url$Url$addPort,
+					url.port_,
+					_Utils_ap(http, url.host)),
+				url.path)));
+};
 var $author$project$Main$update = F2(
 	function (msg, model) {
-		return _Utils_Tuple2(
-			_Utils_update(
-				model,
-				{
-					theme: $author$project$Theme$switch(model.theme.kind)
-				}),
-			$elm$core$Platform$Cmd$none);
+		switch (msg.$) {
+			case 'SwitchTheme':
+				return _Utils_Tuple2(
+					_Utils_update(
+						model,
+						{
+							theme: $author$project$Theme$switch(model.theme.kind)
+						}),
+					$elm$core$Platform$Cmd$none);
+			case 'LinkClicked':
+				var urlRequest = msg.a;
+				if (urlRequest.$ === 'Internal') {
+					var url = urlRequest.a;
+					return _Utils_Tuple2(
+						model,
+						A2(
+							$elm$browser$Browser$Navigation$pushUrl,
+							model.key,
+							$elm$url$Url$toString(url)));
+				} else {
+					var href = urlRequest.a;
+					return _Utils_Tuple2(
+						model,
+						$elm$browser$Browser$Navigation$load(href));
+				}
+			default:
+				var url = msg.a;
+				return _Utils_Tuple2(
+					_Utils_update(
+						model,
+						{url: url}),
+					$elm$core$Platform$Cmd$none);
+		}
 	});
 var $author$project$Main$SwitchTheme = {$: 'SwitchTheme'};
 var $mdgriffith$elm_ui$Internal$Model$AlignX = function (a) {
@@ -17892,15 +17977,15 @@ var $justinmimbs$date$Date$format = function (pattern) {
 var $author$project$Main$toDateString = function (date) {
 	return A2($justinmimbs$date$Date$format, 'MMMM y', date);
 };
-var $author$project$Main$toTuple = function (scheme) {
-	return _Utils_Tuple2(
-		function ($) {
-			return $.name;
-		}(scheme),
-		$author$project$Main$toDateString(
+var $author$project$Main$toItem = function (scheme) {
+	return {
+		first: scheme.name,
+		second: $author$project$Main$toDateString(
 			function ($) {
 				return $.createdAt;
-			}(scheme)));
+			}(scheme)),
+		url: $elm$core$Maybe$Just('/' + scheme.id)
+	};
 };
 var $mdgriffith$elm_ui$Internal$Model$PaddingStyle = F5(
 	function (a, b, c, d, e) {
@@ -17928,6 +18013,37 @@ var $mdgriffith$elm_ui$Element$paddingXY = F2(
 				x,
 				y,
 				x));
+	});
+var $elm$html$Html$Attributes$rel = _VirtualDom_attribute('rel');
+var $mdgriffith$elm_ui$Element$link = F2(
+	function (attrs, _v0) {
+		var url = _v0.url;
+		var label = _v0.label;
+		return A4(
+			$mdgriffith$elm_ui$Internal$Model$element,
+			$mdgriffith$elm_ui$Internal$Model$asEl,
+			$mdgriffith$elm_ui$Internal$Model$NodeName('a'),
+			A2(
+				$elm$core$List$cons,
+				$mdgriffith$elm_ui$Internal$Model$Attr(
+					$elm$html$Html$Attributes$href(url)),
+				A2(
+					$elm$core$List$cons,
+					$mdgriffith$elm_ui$Internal$Model$Attr(
+						$elm$html$Html$Attributes$rel('noopener noreferrer')),
+					A2(
+						$elm$core$List$cons,
+						$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$shrink),
+						A2(
+							$elm$core$List$cons,
+							$mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$shrink),
+							A2(
+								$elm$core$List$cons,
+								$mdgriffith$elm_ui$Internal$Model$htmlClass($mdgriffith$elm_ui$Internal$Style$classes.contentCenterX + (' ' + ($mdgriffith$elm_ui$Internal$Style$classes.contentCenterY + (' ' + $mdgriffith$elm_ui$Internal$Style$classes.link)))),
+								attrs))))),
+			$mdgriffith$elm_ui$Internal$Model$Unkeyed(
+				_List_fromArray(
+					[label])));
 	});
 var $mdgriffith$elm_ui$Internal$Model$Focus = {$: 'Focus'};
 var $mdgriffith$elm_ui$Internal$Model$PseudoSelector = F2(
@@ -18227,11 +18343,26 @@ var $author$project$Material$List$twoElement = F3(
 				]));
 	});
 var $author$project$Material$List$twoLineElement = F2(
-	function (theme, texts) {
-		return A3($author$project$Material$List$twoElement, theme, texts.a, texts.b);
+	function (theme, item) {
+		var _v0 = item.url;
+		if (_v0.$ === 'Nothing') {
+			return A3($author$project$Material$List$twoElement, theme, item.first, item.second);
+		} else {
+			var url = _v0.a;
+			return A2(
+				$mdgriffith$elm_ui$Element$link,
+				_List_fromArray(
+					[
+						$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill)
+					]),
+				{
+					label: A3($author$project$Material$List$twoElement, theme, item.first, item.second),
+					url: url
+				});
+		}
 	});
 var $author$project$Material$List$twoLine = F2(
-	function (theme, texts) {
+	function (theme, item) {
 		return A2(
 			$mdgriffith$elm_ui$Element$column,
 			_List_fromArray(
@@ -18243,14 +18374,14 @@ var $author$project$Material$List$twoLine = F2(
 			A2(
 				$elm$core$List$map,
 				$author$project$Material$List$twoLineElement(theme),
-				texts));
+				item));
 	});
 var $author$project$Main$list = F2(
 	function (theme, schemes) {
 		return A2(
 			$author$project$Material$List$twoLine,
 			theme,
-			A2($elm$core$List$map, $author$project$Main$toTuple, schemes));
+			A2($elm$core$List$map, $author$project$Main$toItem, schemes));
 	});
 var $mdgriffith$elm_ui$Internal$Model$Max = F2(
 	function (a, b) {
@@ -18432,7 +18563,7 @@ var $author$project$Main$view = function (model) {
 		title: 'Furystark'
 	};
 };
-var $author$project$Main$main = $elm$browser$Browser$document(
-	{init: $author$project$Main$init, subscriptions: $author$project$Main$subscriptions, update: $author$project$Main$update, view: $author$project$Main$view});
+var $author$project$Main$main = $elm$browser$Browser$application(
+	{init: $author$project$Main$init, onUrlChange: $author$project$Main$UrlChanged, onUrlRequest: $author$project$Main$LinkClicked, subscriptions: $author$project$Main$subscriptions, update: $author$project$Main$update, view: $author$project$Main$view});
 _Platform_export({'Main':{'init':$author$project$Main$main(
-	$elm$json$Json$Decode$succeed(_Utils_Tuple0))({"versions":{"elm":"0.19.1"},"types":{"message":"Main.Msg","aliases":{},"unions":{"Main.Msg":{"args":[],"tags":{"SwitchTheme":[]}}}}})}});}(this));
+	$elm$json$Json$Decode$succeed(_Utils_Tuple0))({"versions":{"elm":"0.19.1"},"types":{"message":"Main.Msg","aliases":{"Url.Url":{"args":[],"type":"{ protocol : Url.Protocol, host : String.String, port_ : Maybe.Maybe Basics.Int, path : String.String, query : Maybe.Maybe String.String, fragment : Maybe.Maybe String.String }"}},"unions":{"Main.Msg":{"args":[],"tags":{"LinkClicked":["Browser.UrlRequest"],"SwitchTheme":[],"UrlChanged":["Url.Url"]}},"Basics.Int":{"args":[],"tags":{"Int":[]}},"Maybe.Maybe":{"args":["a"],"tags":{"Just":["a"],"Nothing":[]}},"Url.Protocol":{"args":[],"tags":{"Http":[],"Https":[]}},"String.String":{"args":[],"tags":{"String":[]}},"Browser.UrlRequest":{"args":[],"tags":{"Internal":["Url.Url"],"External":["String.String"]}}}}})}});}(this));

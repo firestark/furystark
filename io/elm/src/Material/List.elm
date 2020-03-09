@@ -1,10 +1,16 @@
-module Material.List exposing (singleLine, twoLine)
+module Material.List exposing (singleLine, twoLine, Item)
 
 import Element exposing (Element, fill, width, height, px, column, paddingXY, el, row, mouseOver, centerY)
 import Element.Background as Background
 import Element.Font as Font
 import Html.Attributes
 import Theme exposing (Theme)
+
+type alias Item =
+    { first : String
+    , second : String
+    , url : Maybe String
+    }
 
 singleLine : List String -> Theme -> Element msg
 singleLine texts theme =
@@ -15,20 +21,27 @@ singleLine texts theme =
         ]
         <| List.map (element theme) texts
 
-twoLine : Theme -> List (String, String) -> Element msg
-twoLine theme texts =
+twoLine : Theme -> List Item -> Element msg
+twoLine theme item =
     column 
         [ width fill
         , Font.color theme.onBackground
         , paddingXY 0 8
         ]
-        <| List.map (twoLineElement theme) texts  
+        <| List.map (twoLineElement theme) item  
 
 
-twoLineElement : Theme -> (String, String) -> Element msg
-twoLineElement theme texts =
-    twoElement theme (Tuple.first texts) (Tuple.second texts)
-    
+twoLineElement : Theme -> Item -> Element msg
+twoLineElement theme item =
+    case item.url of
+        Nothing ->
+            twoElement theme item.first item.second
+        Just url ->
+            Element.link 
+                [ width fill ]
+                { url = url
+                , label = twoElement theme item.first item.second
+                }    
 
 element : Theme -> String -> Element msg
 element theme text =

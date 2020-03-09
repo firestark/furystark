@@ -1,6 +1,7 @@
 module Main exposing (main)
 
 import Browser
+import Browser.Navigation as Nav
 import Date exposing (Date)
 import Element exposing (Element, column, el, fill, layout, maximum, clip, px, width, height, centerX, centerY)
 import Element.Background as Background
@@ -16,6 +17,7 @@ import Material.List as List
 import Material.TopAppBar as TopAppBar
 import Theme exposing (Theme)
 import Time
+import Url exposing (Url)
 
 
 schemeDate : Date
@@ -26,45 +28,53 @@ schemeDate =
 
 
 type alias Scheme =
-    { name : String
+    { id : String
+    , name : String
     , createdAt : Date
     }
 
 
 main : Program () Model Msg
 main =
-    Browser.document
+    Browser.application
         { init = init
         , view = view
         , update = update
         , subscriptions = subscriptions
+        , onUrlChange = UrlChanged
+        , onUrlRequest = LinkClicked
         }
 
-
 type Msg
-    = SwitchTheme
-
+    = LinkClicked Browser.UrlRequest
+    | SwitchTheme
+    | UrlChanged Url
 
 type alias Model =
-    { title : String
+    { key : Nav.Key
+    , url : Url
+    , title : String
     , schemes : List Scheme
     , theme : Theme
     }
 
+defaults : Nav.Key -> Url -> Model
+defaults key url =
+    { key = key
+    , url = url
+    , title = "My schemes"
+    , schemes =
+        [ Scheme "1" "Chest" schemeDate
+        , Scheme "2" "Back" schemeDate
+        , Scheme "3" "Legs" schemeDate
+        , Scheme "4" "Shoulders" schemeDate
+        ]
+    , theme = Theme.dark
+    }
 
-init : () -> ( Model, Cmd Msg )
-init _ =
-    ( { title = "My schemes"
-      , schemes =
-            [ Scheme "Chest" schemeDate
-            , Scheme "Back" schemeDate
-            , Scheme "Legs" schemeDate
-            , Scheme "Shoulders" schemeDate
-            ]
-      , theme = Theme.light
-      }
-    , Cmd.none
-    )
+init : () -> Url -> Nav.Key -> ( Model, Cmd Msg )
+init _ url key =
+  ( defaults key url, Cmd.none )
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -72,6 +82,18 @@ update msg model =
     case msg of
         SwitchTheme ->
             ( { model | theme = Theme.switch model.theme.kind }, Cmd.none )
+        LinkClicked urlRequest ->
+            case urlRequest of
+                Browser.Internal url ->
+                    ( model, Nav.pushUrl model.key (Url.toString url) )
+
+                Browser.External href ->
+                    ( model, Nav.load href )
+
+        UrlChanged url ->
+            ( { model | url = url }
+            , Cmd.none
+            )
 
 
 subscriptions : Model -> Sub Msg
@@ -117,13 +139,15 @@ body model =
 
 list : Theme -> List Scheme -> Element msg
 list theme schemes =
-    List.twoLine theme <| List.map toTuple schemes
+    List.twoLine theme <| List.map toItem schemes
 
 
-toTuple : Scheme -> ( String, String )
-toTuple scheme =
-    ( .name scheme, toDateString <| .createdAt scheme )
-
+toItem : Scheme -> List.Item
+toItem scheme =
+    { first = scheme.name
+    , second = toDateString <| .createdAt scheme
+    , url = Just <| "/" ++ scheme.id
+    }
 
 toDateString : Date -> String
 toDateString date =
