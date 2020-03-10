@@ -14,4 +14,4 @@ Route::post( '/login', function() {
     Sess::set('token', Guard::stamp($credentials));
     Sess::flash('message', 'Logged in.');
     return Redirect::to('/');
-} );
+});
