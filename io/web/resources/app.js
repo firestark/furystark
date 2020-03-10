@@ -38,6 +38,8 @@ tabBars.forEach((tab) => {
 export const dialog = {
     openWith: (element, dialogElement) => {
         const mdcDialog = new MDCDialog(dialogElement);
-        mdcDialog.open();
+        element.onclick = function() {
+            mdcDialog.open();
+        }
     }
 };

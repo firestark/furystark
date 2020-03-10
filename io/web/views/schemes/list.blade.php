@@ -87,9 +87,6 @@
 
     <script>
         const addSchemesFab = document.getElementById('add-schemes-fab');
-
-        addSchemesFab.onclick = () => {
-            app.dialog.open(document.querySelector('.mdc-dialog'));
-        };
+        app.dialog.openWith (addSchemesFab, document.querySelector('.mdc-dialog'));
     </script>
 @endsection

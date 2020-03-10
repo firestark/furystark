@@ -130,9 +130,6 @@
 
     <script>
         const addExerciseFab = document.getElementById('add-exercise-fab');
-
-        addExerciseFab.onclick = () => {
-            app.dialog.open(document.querySelector('.mdc-dialog'));
-        };
+        app.dialog.openWith (addExerciseFab, document.querySelector('.mdc-dialog'));
     </script>
 @endsection
