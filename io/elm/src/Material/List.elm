@@ -1,6 +1,6 @@
 module Material.List exposing (singleLine, twoLine, Item)
 
-import Element exposing (Element, fill, width, height, px, column, paddingXY, el, row, mouseOver, centerY)
+import Element exposing (Element, fill, width, height, px, column, paddingXY, el, row, mouseOver, centerY, link)
 import Element.Background as Background
 import Element.Font as Font
 import Html.Attributes
@@ -37,7 +37,7 @@ twoLineElement theme item =
         Nothing ->
             twoElement theme item.first item.second
         Just url ->
-            Element.link 
+            link 
                 [ width fill ]
                 { url = url
                 , label = twoElement theme item.first item.second

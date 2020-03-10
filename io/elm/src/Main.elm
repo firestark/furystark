@@ -3,7 +3,7 @@ module Main exposing (main)
 import Browser
 import Browser.Navigation as Nav
 import Date exposing (Date)
-import Element exposing (Element, column, el, fill, layout, maximum, clip, px, width, height, centerX, centerY)
+import Element exposing (Element, column, el, fill, layout, maximum, clip, px, width, height, centerX, centerY, link)
 import Element.Background as Background
 import Element.Border as Border
 import Element.Events exposing (onClick)
@@ -156,23 +156,31 @@ toDateString date =
 
 fab : Theme -> Element msg
 fab theme =
-    el 
-        [ Border.rounded 50 
-        , clip
-        , Background.color theme.secondary
-        , Font.color theme.onSecondary
-        , width (px 56)
-        , Element.height (px 56)
-        , Elevation.z6
-        , Element.htmlAttribute <| 
+    link 
+        [ Element.htmlAttribute <| 
             Html.Attributes.style "position" "absolute"
         , Element.htmlAttribute <| 
             Html.Attributes.style "bottom" "32px"
         , Element.htmlAttribute <| 
-            Html.Attributes.style "right" "32px"
+                Html.Attributes.style "right" "32px"
         ]
-        <| el 
-            [ centerX
-            , centerY
-            ] 
-            <| Element.html Material.Icons.add
+        { url = "/add"
+        , label =
+            el 
+                [ Border.rounded 50 
+                , clip
+                , Background.color theme.secondary
+                , Font.color theme.onSecondary
+                , width (px 56)
+                , Element.height (px 56)
+                , Elevation.z6
+                
+                ]
+                <| el 
+                    [ centerX
+                    , centerY
+                    ] 
+                    <| Element.html Material.Icons.add
+        }    
+
+   
