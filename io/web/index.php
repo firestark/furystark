@@ -30,8 +30,6 @@ including ( __DIR__ . '/../../app/procedures' );
 $app->instance('request', Laminas\Diactoros\ServerRequestFactory::fromGlobals());
 
 $relay = new Relay([
-    (new Middlewares\Debugbar(null, $app['response']))->inline(),
-    (new Middlewares\Whoops(null, $app['response']))->catchErrors(false),
     new \Firestark\Middlewares\Redirect($app),
     new \Firestark\Middlewares\Input($app),
     new \Firestark\Middlewares\Auth($app),
