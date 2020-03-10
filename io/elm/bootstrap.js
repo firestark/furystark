@@ -10672,10 +10672,6 @@ var $elm$core$Basics$never = function (_v0) {
 	}
 };
 var $elm$browser$Browser$application = _Browser_application;
-var $author$project$Main$Scheme = F3(
-	function (id, name, createdAt) {
-		return {createdAt: createdAt, id: id, name: name};
-	});
 var $author$project$Theme$Dark = {$: 'Dark'};
 var $mdgriffith$elm_ui$Internal$Model$Rgba = F4(
 	function (a, b, c, d) {
@@ -10699,6 +10695,10 @@ var $author$project$Theme$dark = {
 	secondary: $author$project$Material$Color$lime500,
 	surface: A3($mdgriffith$elm_ui$Element$rgb255, 66, 66, 66)
 };
+var $author$project$Scheme$Scheme = F3(
+	function (id, name, createdAt) {
+		return {createdAt: createdAt, id: id, name: name};
+	});
 var $justinmimbs$date$Date$RD = function (a) {
 	return {$: 'RD', a: a};
 };
@@ -10916,25 +10916,20 @@ var $elm$time$Time$Zone = F2(
 		return {$: 'Zone', a: a, b: b};
 	});
 var $elm$time$Time$utc = A2($elm$time$Time$Zone, 0, _List_Nil);
-var $author$project$Main$schemeDate = A2(
+var $author$project$Scheme$schemeDate = A2(
 	$justinmimbs$date$Date$fromPosix,
 	$elm$time$Time$utc,
 	$elm$time$Time$millisToPosix(1583681692 * 1000));
+var $author$project$Scheme$mock = _List_fromArray(
+	[
+		A3($author$project$Scheme$Scheme, '1', 'Chest', $author$project$Scheme$schemeDate),
+		A3($author$project$Scheme$Scheme, '2', 'Back', $author$project$Scheme$schemeDate),
+		A3($author$project$Scheme$Scheme, '3', 'Legs', $author$project$Scheme$schemeDate),
+		A3($author$project$Scheme$Scheme, '4', 'Shoulders', $author$project$Scheme$schemeDate)
+	]);
 var $author$project$Main$defaults = F2(
 	function (key, url) {
-		return {
-			key: key,
-			schemes: _List_fromArray(
-				[
-					A3($author$project$Main$Scheme, '1', 'Chest', $author$project$Main$schemeDate),
-					A3($author$project$Main$Scheme, '2', 'Back', $author$project$Main$schemeDate),
-					A3($author$project$Main$Scheme, '3', 'Legs', $author$project$Main$schemeDate),
-					A3($author$project$Main$Scheme, '4', 'Shoulders', $author$project$Main$schemeDate)
-				]),
-			theme: $author$project$Theme$dark,
-			title: 'My schemes',
-			url: url
-		};
+		return {key: key, schemes: $author$project$Scheme$mock, theme: $author$project$Theme$dark, title: 'My schemes', url: url};
 	});
 var $author$project$Main$init = F3(
 	function (_v0, url, key) {
@@ -18013,13 +18008,13 @@ var $justinmimbs$date$Date$language_en = {
 var $justinmimbs$date$Date$format = function (pattern) {
 	return A2($justinmimbs$date$Date$formatWithLanguage, $justinmimbs$date$Date$language_en, pattern);
 };
-var $author$project$Main$toDateString = function (date) {
+var $author$project$Scheme$toDateString = function (date) {
 	return A2($justinmimbs$date$Date$format, 'MMMM y', date);
 };
-var $author$project$Main$toItem = function (scheme) {
+var $author$project$Scheme$toItem = function (scheme) {
 	return {
 		first: scheme.name,
-		second: $author$project$Main$toDateString(
+		second: $author$project$Scheme$toDateString(
 			function ($) {
 				return $.createdAt;
 			}(scheme)),
@@ -18384,12 +18379,12 @@ var $author$project$Material$List$twoLine = F2(
 				$author$project$Material$List$twoLineElement(theme),
 				item));
 	});
-var $author$project$Main$list = F2(
+var $author$project$Scheme$list = F2(
 	function (theme, schemes) {
 		return A2(
 			$author$project$Material$List$twoLine,
 			theme,
-			A2($elm$core$List$map, $author$project$Main$toItem, schemes));
+			A2($elm$core$List$map, $author$project$Scheme$toItem, schemes));
 	});
 var $mdgriffith$elm_ui$Internal$Model$Max = F2(
 	function (a, b) {
@@ -18557,7 +18552,7 @@ var $author$project$Main$body = function (model) {
 							model.theme,
 							_List_fromArray(
 								[
-									A2($author$project$Main$list, model.theme, model.schemes)
+									A2($author$project$Scheme$list, model.theme, model.schemes)
 								]))
 						]))
 				])));

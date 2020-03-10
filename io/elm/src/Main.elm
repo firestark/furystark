@@ -2,7 +2,6 @@ module Main exposing (main)
 
 import Browser
 import Browser.Navigation as Nav
-import Date exposing (Date)
 import Element exposing (Element, column, el, fill, layout, maximum, clip, px, width, height, centerX, centerY, link)
 import Element.Background as Background
 import Element.Border as Border
@@ -13,25 +12,22 @@ import Html.Attributes
 import Material.Card as Card
 import Material.Elevation as Elevation
 import Material.Icons
-import Material.List as List
 import Material.TopAppBar as TopAppBar
+import Scheme
 import Theme exposing (Theme)
-import Time
 import Url exposing (Url)
+import Url.Parser exposing (Parser, (</>), int, map, oneOf, s, string)
 
+type Route
+  = Scheme Int
+  | Schemes
 
-schemeDate : Date
-schemeDate =
-    Date.fromPosix
-        Time.utc
-        (Time.millisToPosix (1583681692 * 1000))
-
-
-type alias Scheme =
-    { id : String
-    , name : String
-    , createdAt : Date
-    }
+routeParser : Parser (Route -> a) a
+routeParser =
+  oneOf
+    [ map Schemes   (s "")
+    , map Scheme    (s "scheme" </> int)
+    ]
 
 
 main : Program () Model Msg
@@ -54,7 +50,7 @@ type alias Model =
     { key : Nav.Key
     , url : Url
     , title : String
-    , schemes : List Scheme
+    , schemes : List Scheme.Scheme
     , theme : Theme
     }
 
@@ -63,12 +59,7 @@ defaults key url =
     { key = key
     , url = url
     , title = "My schemes"
-    , schemes =
-        [ Scheme "1" "Chest" schemeDate
-        , Scheme "2" "Back" schemeDate
-        , Scheme "3" "Legs" schemeDate
-        , Scheme "4" "Shoulders" schemeDate
-        ]
+    , schemes = Scheme.mock
     , theme = Theme.dark
     }
 
@@ -133,25 +124,8 @@ body model =
                 [ width <| maximum 1200 fill
                 , centerX
                 ]
-                [ Card.view model.theme [ list model.theme model.schemes ] ]
+                [ Card.view model.theme [ Scheme.list model.theme model.schemes ] ]
             ]
-
-
-list : Theme -> List Scheme -> Element msg
-list theme schemes =
-    List.twoLine theme <| List.map toItem schemes
-
-
-toItem : Scheme -> List.Item
-toItem scheme =
-    { first = scheme.name
-    , second = toDateString <| .createdAt scheme
-    , url = Just <| "/" ++ scheme.id
-    }
-
-toDateString : Date -> String
-toDateString date =
-    Date.format "MMMM y" date
 
 
 fab : Theme -> Element msg
