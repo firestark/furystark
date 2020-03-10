@@ -6,6 +6,7 @@
     <title>Furystark</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="mobile-web-app-capable" content="yes">
     <link rel="stylesheet" href="/dist/css/{{ Sess::get('theme', 'light') }}.css">
 </head>
 
