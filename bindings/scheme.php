@@ -1,7 +1,7 @@
 <?php
 
 App::bind(Scheme::class, function($app, Array $data = []) {
-    $id = $data ['id'] ?? Input::get('id') ?? uniqid ();
+    $id = $data ['schemeId'] ?? Input::get('schemeId') ?? uniqid ();
 
     if ($app[Scheme\Manager::class]->has($id))
         return $app[Scheme\Manager::class]->find($id);

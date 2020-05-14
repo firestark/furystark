@@ -1,5 +1,5 @@
 <?php
 
-Route::get('/schemes/{id}/start', function() {
+Route::get('/schemes/{schemeId}/start', function() {
     return App::fulfill('i want to start a new session');
 });

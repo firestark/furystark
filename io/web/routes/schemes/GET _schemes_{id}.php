@@ -1,5 +1,5 @@
 <?php
 
-Route::get('/schemes/{id}', function($request, $params) {
+Route::get('/schemes/{schemeId}', function() {
     return App::fulfill('i want to see my scheme sessions');
 });
