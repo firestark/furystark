@@ -1,7 +1,7 @@
 <?php
 
 App::bind(Exercise::class, function($app, array $data) {
-    $id = $data['id'] ?? Input::get('exercise', uniqid());
+    $id = $data['id'] ?? Input::get('exerciseId', uniqid());
     $name = $data['name'] ?? Input::get('exercise', '');
     $sets = $data['sets'] ?? Input::get('sets', 0);
     $reps = $data['reps'] ?? Input::get('reps', 0);
