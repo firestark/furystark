@@ -20,11 +20,11 @@ $app->instance('view', new Firestark\View($app['response'], new Blade(__DIR__ . 
 
 Facade::setFacadeApplication($app);
 
-including ( __DIR__ . '/../../bindings' );
-including ( __DIR__ . '/bindings' );
-including ( __DIR__ . '/routes' );
-including ( __DIR__ . '/statuses' );
-including ( __DIR__ . '/../../app/procedures' );
+including(__DIR__ . '/../../bindings');
+including(__DIR__ . '/bindings');
+including(__DIR__ . '/routes');
+including(__DIR__ . '/statuses');
+including(__DIR__ . '/../../app/procedures');
 
 
 $app->instance('request', Laminas\Diactoros\ServerRequestFactory::fromGlobals());
